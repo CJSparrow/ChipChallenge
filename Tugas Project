@@ -12,7 +12,9 @@ Kelas yang dibutuhkan :
                                                                   ii.   turboFloor..
                                                                   iii.  iceFloor..
                                                                   iv.   finishFloor..
-                                                                  v.    buttonFloor..
+                                                                  v.    buttonFloor : 1.  helpFloor..
+                                                                                      2.  removalFloor..
+                                                                                      3.  colouringWallFloor..
                                       
   5.  Obstacle :  a.  bergerak     :    i.  pesawat..
                                         ii. marble..
