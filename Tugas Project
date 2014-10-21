@@ -9,8 +9,8 @@ Kelas yang dibutuhkan :
                                       ii. turboFloor
                                       iii.iceFloor
                                       
-  5.  Obstacle :  a.  dapat dilalui : i.mati    : 1.  bergerak      :
-                                                  2.  tidak bergerak  : a.  
+  5.  Obstacle :  a.  bergerak     : i.mati
                                     ii.ga mati
-                  b.  tidak dapat dilalui : i.bisa didorong
+                                    
+                  b.  tidak bergerak       : i.bisa didorong
                                             ii.tidak bisa didorong
