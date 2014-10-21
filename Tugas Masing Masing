@@ -1,0 +1,16 @@
+Kelas yang dibutuhkan :
+  1.  Board
+  2.  Chip's
+  3.  Item
+  4.  Floor : a.  dangerousFloor  :   i.  fireFloor
+                                      ii. waterFloor
+                                      
+              b.  fineFloor       :   i.  plainFloor
+                                      ii. turboFloor
+                                      iii.iceFloor
+                                      
+  5.  Obstacle :  a.  dapat dilalui : i.mati    : 1.  bergerak      :
+                                                  2.  tidak bergerak  : a.  
+                                    ii.ga mati
+                  b.  tidak dapat dilalui : i.bisa didorong
+                                            ii.tidak bisa didorong
