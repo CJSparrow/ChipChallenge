@@ -13,9 +13,9 @@ Kelas yang dibutuhkan :
                                                                   iii.  iceFloor..
                                                                   iv.   shiftFloor  : 1.  teleportFloor..
                                                                                       2.  finishFloor..
-                                                                  v.    buttonFloor : 1.  helpFloor..
-                                                                                      2.  removalFloor..
-                                                                                      3.  colouringWallFloor..
+                                                                  v.    triggerFloor :  1.  helpFloor..
+                                                                                        2.  removalFloor..
+                                                                                        3.  colouringWallFloor..
                                       
   5.  Obstacle :  a.  bergerak     :    i.  pesawat..
                                         ii. marble..
