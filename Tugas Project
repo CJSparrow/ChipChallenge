@@ -7,12 +7,18 @@ Kelas yang dibutuhkan :
   4.  Floor : a.  dangerousFloor  :   i.  fireFloor..
                                       ii. waterFloor..
                                       
-              b.  fineFloor       :   i.  plainFloor..
-                                      ii. turboFloor..
-                                      iii.iceFloor..
+              b.  fineFloor       :   i.    plainFloor..
+                                      ii.   turboFloor..
+                                      iii.  iceFloor..
+                                      iv.   finishFloor..
+                                      v.    buttonFloor..
                                       
   5.  Obstacle :  a.  bergerak     : i.mati
-                                    ii.ga mati
+                                    ii.ga mati  :   i.  kotakCoklat
+                                                    
                                     
                   b.  tidak bergerak       : i.bisa didorong
-                                            ii.tidak bisa didorong
+                                            ii.tidak bisa didorong  :   1.  barrier..
+                                                                        2.  dinding : i.  normalWall..
+                                                                                      ii. invisible
+                                                                                      
