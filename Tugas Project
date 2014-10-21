@@ -19,6 +19,9 @@ Kelas yang dibutuhkan :
                                     
                   b.  tidak bergerak       : i.bisa didorong
                                             ii.tidak bisa didorong  :   1.  barrier..
-                                                                        2.  dinding : i.  normalWall..
-                                                                                      ii. invisible
+                                                                        2.  dinding : i.    normalWall..
+                                                                                      ii.   invisibleWall..
+                                                                                      iii.  randomWall..
+                                                                                      iv.   colouringWall..
+                                                                                      v.    dangerousWall..
                                                                                       
