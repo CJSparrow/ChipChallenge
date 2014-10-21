@@ -11,7 +11,8 @@ Kelas yang dibutuhkan :
                                       2.  tidak dapat didorong  : i.    plainFloor..
                                                                   ii.   turboFloor..
                                                                   iii.  iceFloor..
-                                                                  iv.   finishFloor..
+                                                                  iv.   shiftFloor  : 1.  teleportFloor..
+                                                                                      2.  finishFloor..
                                                                   v.    buttonFloor : 1.  helpFloor..
                                                                                       2.  removalFloor..
                                                                                       3.  colouringWallFloor..
