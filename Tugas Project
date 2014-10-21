@@ -1,13 +1,15 @@
 Kelas yang dibutuhkan :
   1.  Board
   2.  Chip's
-  3.  Item
-  4.  Floor : a.  dangerousFloor  :   i.  fireFloor
-                                      ii. waterFloor
+  3.  Item  : a.  dapat masuk ke inventory :  i. kunci..
+                                              ii.sepatu..
+              b.  tidak dapat : IC..
+  4.  Floor : a.  dangerousFloor  :   i.  fireFloor..
+                                      ii. waterFloor..
                                       
-              b.  fineFloor       :   i.  plainFloor
-                                      ii. turboFloor
-                                      iii.iceFloor
+              b.  fineFloor       :   i.  plainFloor..
+                                      ii. turboFloor..
+                                      iii.iceFloor..
                                       
   5.  Obstacle :  a.  bergerak     : i.mati
                                     ii.ga mati
