@@ -1,5 +1,7 @@
 public class Tester {
-
+  public void String main(String[] args){
+  
+  }
 
 
 }
