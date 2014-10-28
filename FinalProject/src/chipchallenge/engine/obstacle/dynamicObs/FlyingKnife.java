@@ -9,6 +9,6 @@ package chipchallenge.engine.obstacle.dynamicObs;
  *
  * @author Jonathan Surya Laksa
  */
-public class FlyingKnife {
+public class FlyingKnife extends DynamicObstacle{
     
 }

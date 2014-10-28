@@ -1,4 +1,4 @@
-package chipchallenge.engine.obstacle.dynamicObs;
+package chipchallenge.engine.obstacle.staticObs;
 
 import chipchallenge.engine.obstacle.Obstacle;
 
@@ -6,7 +6,7 @@ import chipchallenge.engine.obstacle.Obstacle;
  *
  * @author TampanCrew
  */
-public class DynamicObstacle extends Obstacle{
+public class StaticObstacle extends Obstacle{
 
     @Override
     public boolean setVisible() {

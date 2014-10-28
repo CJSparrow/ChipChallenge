@@ -9,6 +9,6 @@ package chipchallenge.engine.obstacle.dynamicObs;
  *
  * @author Jonathan Surya Laksa
  */
-public class Airplane {
+public class Airplane extends DynamicObstacle{
     
 }
