@@ -1,0 +1,29 @@
+chip :	-atb :	- array buat item (inventory)
+		- chipRemain (int)
+		- timeBonus int
+		- levelBonus int
+		- levelScore int 
+		- totalScore int
+		- isVisible boolean
+	-mtd :	- walk() void
+		- setVisible(masukkan) void
+		- setImageFileName(String lokasiImg) void
+
+*board :	-atb : 	- time
+			- passwordLevel
+			- level
+
+item :	-atb :	- isVisible boolean
+		- imageDir String
+	-mtd :	- canBeObtained() boolean
+		- setVisible() void
+		- setImageFileName(String lokasiImg) void
+
+obstacle : - atb : - isVisible boolean
+		   - passAllow boolean
+		   - killAllow boolean
+		   - pushAllow boolean
+	   - mtd : - setImageFileName(String lokasiImg) void
+		   - setVisible() void
+		   - setPassAble() void
+		   - setKillAble() void
