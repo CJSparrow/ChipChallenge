@@ -8,9 +8,12 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class DynamicObstacle extends Obstacle{
 
-    @Override
-    public boolean setVisible() {
-        return true;
+    public DynamicObstacle(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
+    public void setVisible() {
+        
     }
 
     @Override
@@ -25,7 +28,12 @@ public class DynamicObstacle extends Obstacle{
 
     @Override
     public boolean pushAllow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
+    }
+
+    @Override
+    public boolean isVisible() {
+        return true;
     }
     
 }
