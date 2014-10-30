@@ -12,5 +12,13 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  * @author Jonathan Surya Laksa
  */
 public class HelpFloor extends Floor{
+
+    public HelpFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
     
+    public String helpTrigger(String textHelp)
+    {
+        return textHelp;
+    }
 }

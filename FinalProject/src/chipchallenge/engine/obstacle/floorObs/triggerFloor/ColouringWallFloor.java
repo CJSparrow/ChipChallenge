@@ -12,5 +12,26 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  * @author Jonathan Surya Laksa
  */
 public class ColouringWallFloor extends Floor{
-    
+
+    private boolean clicked;
+    public ColouringWallFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+        clicked=false;
+    }
+    public boolean isClicked()
+    {
+        return clicked;
+    }
+    public void turnClicked()
+    {
+        if(clicked=false)
+        {
+            clicked=true;
+        }
+        else
+        {
+            clicked=false;
+        }
+    }
+            
 }

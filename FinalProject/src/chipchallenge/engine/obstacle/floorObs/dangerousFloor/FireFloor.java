@@ -12,5 +12,14 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  * @author Jonathan Surya Laksa
  */
 public class FireFloor extends Floor{
-    
+
+    public FireFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
+    @Override
+    public boolean killAllow()
+    {
+        return true;
+    }
 }

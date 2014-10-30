@@ -12,5 +12,14 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  * @author Jonathan Surya Laksa
  */
 public class FinishFloor extends Floor{
+
+    public FinishFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
     
+    @Override
+    public boolean isFinish()
+    {
+        return true;
+    }
 }

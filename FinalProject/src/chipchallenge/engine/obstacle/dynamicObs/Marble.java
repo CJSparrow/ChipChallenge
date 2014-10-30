@@ -5,10 +5,37 @@
  */
 package chipchallenge.engine.obstacle.dynamicObs;
 
+import chipchallenge.engine.obstacle.Obstacle;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
-public class Marble extends DynamicObstacle{
+public class Marble extends Obstacle{
+
+    public Marble(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
+
+    @Override
+    public boolean isVisible() {
+        return true;
+    }
+
+    @Override
+    public boolean passAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean killAllow() {
+        return true;
+    }
+
+    @Override
+    public boolean pushAllow() {
+        return false;
+    }
     
 }

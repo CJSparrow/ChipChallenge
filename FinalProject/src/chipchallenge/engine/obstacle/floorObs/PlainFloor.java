@@ -10,5 +10,10 @@ package chipchallenge.engine.obstacle.floorObs;
  * @author Jonathan Surya Laksa
  */
 public class PlainFloor extends Floor{
+
+    public PlainFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
     
 }

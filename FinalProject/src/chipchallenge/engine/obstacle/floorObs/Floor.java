@@ -8,8 +8,12 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class Floor extends Obstacle {
 
+    public Floor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
     @Override
-    public boolean setVisible() {
+    public boolean isVisible() {
         return true;
     }
 
@@ -20,12 +24,16 @@ public class Floor extends Obstacle {
 
     @Override
     public boolean killAllow() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean pushAllow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
     
+    public boolean isFinish()
+    {
+        return false;
+    }
 }

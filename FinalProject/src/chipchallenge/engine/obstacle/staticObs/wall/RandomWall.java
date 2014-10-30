@@ -10,5 +10,41 @@ package chipchallenge.engine.obstacle.staticObs.wall;
  * @author Jonathan Surya Laksa
  */
 public class RandomWall extends Wall{
+
+    private boolean pushed;
+    private Wall nextWall;
+    public RandomWall(int locationX, int locationY, String lokasiImg, Wall randomWall) {
+        super(locationX, locationY, lokasiImg);
+        pushed = false;
+        nextWall = randomWall;
+    }
+     @Override
+    public boolean isVisible() {
+        return true;
+    }
+
+    @Override
+    public boolean passAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean killAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean pushAllow() {
+        return false;
+    }
     
+    public void pushed()
+    {
+        pushed = true;
+    }
+    
+    public boolean getPushed()
+    {
+        return pushed;
+    }
 }

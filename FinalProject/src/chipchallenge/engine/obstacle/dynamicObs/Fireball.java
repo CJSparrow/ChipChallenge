@@ -5,10 +5,36 @@
  */
 package chipchallenge.engine.obstacle.dynamicObs;
 
+import chipchallenge.engine.obstacle.Obstacle;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
-public class Fireball extends DynamicObstacle{
-    
+public class Fireball extends Obstacle{
+
+    public Fireball(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
+
+    @Override
+    public boolean isVisible() {
+        return true;
+    }
+
+    @Override
+    public boolean passAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean killAllow() {
+        return true;
+    }
+
+    @Override
+    public boolean pushAllow() {
+        return false;
+    }
 }

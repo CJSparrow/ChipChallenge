@@ -10,5 +10,15 @@ package chipchallenge.engine.item;
  * @author Jonathan Surya Laksa
  */
 public class Shoes extends Item{
+
+    public Shoes(int locationX, int locationY) {
+        super(locationX, locationY);
+        this.setVisible(true);
+    }
+
+    @Override
+    public boolean canBeObtained() {
+        return true;
+    }
     
 }

@@ -5,10 +5,42 @@
  */
 package chipchallenge.engine.obstacle.staticObs.wall;
 
+import chipchallenge.engine.obstacle.floorObs.triggerFloor.ColouringWallFloor;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
 public class ColouringWall extends Wall{
-    
+    private ColouringWallFloor theTrigger;
+    public ColouringWall(int locationX, int locationY, String lokasiImg, ColouringWallFloor trigger) {
+        super(locationX, locationY, lokasiImg);
+        theTrigger=trigger;
+    }
+     @Override
+    public boolean isVisible() {
+        return true;
+    }
+
+    @Override
+    public boolean passAllow() {
+        if(theTrigger.isClicked())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean killAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean pushAllow() {
+        return false;
+    }
 }

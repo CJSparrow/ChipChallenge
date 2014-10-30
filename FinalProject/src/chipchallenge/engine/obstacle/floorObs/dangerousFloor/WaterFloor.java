@@ -11,6 +11,14 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  *
  * @author Jonathan Surya Laksa
  */
-public class WaterFloor extends Floor{
-    
+public class WaterFloor extends Floor {
+
+    public WaterFloor(int locationX, int locationY, String lokasiImg) {
+        super(locationX, locationY, lokasiImg);
+    }
+
+    @Override
+    public boolean killAllow() {
+        return true;
+    }
 }

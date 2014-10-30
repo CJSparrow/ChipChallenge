@@ -10,5 +10,16 @@ package chipchallenge.engine.item;
  * @author Jonathan Surya Laksa
  */
 public class IntergratedCircuit extends Item{
+
+    public IntergratedCircuit(int locationX, int locationY) {
+        super(locationX, locationY);
+        this.setVisible(true);
+        
+    }
+
+    @Override
+    public boolean canBeObtained() {
+        return false;
+    }
     
 }
