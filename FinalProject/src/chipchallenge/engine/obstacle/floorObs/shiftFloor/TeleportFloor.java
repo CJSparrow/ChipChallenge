@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.floorObs.shiftFloor;
 
 import chipchallenge.engine.obstacle.floorObs.Floor;
+import java.awt.Image;
 
 /**
  *
@@ -13,9 +14,11 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  */
 public class TeleportFloor extends Floor{
 
-    public TeleportFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public TeleportFloor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
+
     
     public int getXNext(TeleportFloor next)
     {

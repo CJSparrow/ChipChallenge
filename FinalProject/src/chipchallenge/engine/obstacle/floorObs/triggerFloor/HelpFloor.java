@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.floorObs.triggerFloor;
 
 import chipchallenge.engine.obstacle.floorObs.Floor;
+import java.awt.Image;
 
 /**
  *
@@ -13,9 +14,11 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  */
 public class HelpFloor extends Floor{
 
-    public HelpFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public HelpFloor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
+
     
     public String helpTrigger(String textHelp)
     {

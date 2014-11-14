@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.dynamicObs;
 
 import chipchallenge.engine.obstacle.Obstacle;
+import java.awt.Image;
 
 /**
  *
@@ -13,9 +14,10 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class Fireball extends Obstacle{
 
-    public Fireball(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public Fireball(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
 
 
     @Override

@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.staticObs.wall;
 
 import chipchallenge.engine.obstacle.floorObs.triggerFloor.ColouringWallFloor;
+import java.awt.Image;
 
 /**
  *
@@ -13,10 +14,13 @@ import chipchallenge.engine.obstacle.floorObs.triggerFloor.ColouringWallFloor;
  */
 public class ColouringWall extends Wall{
     private ColouringWallFloor theTrigger;
-    public ColouringWall(int locationX, int locationY, String lokasiImg, ColouringWallFloor trigger) {
-        super(locationX, locationY, lokasiImg);
+
+    public ColouringWall(int locationX, int locationY, ColouringWallFloor trigger) {
+        super(locationX, locationY);
         theTrigger=trigger;
     }
+
+    
      @Override
     public boolean isVisible() {
         return true;

@@ -5,14 +5,17 @@
  */
 package chipchallenge.engine.obstacle.floorObs;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
 public class TurboFloor extends Floor{
 
-    public TurboFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public TurboFloor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
 
 }

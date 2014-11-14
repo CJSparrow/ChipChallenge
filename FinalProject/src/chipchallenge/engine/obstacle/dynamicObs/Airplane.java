@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.dynamicObs;
 
 import chipchallenge.engine.obstacle.Obstacle;
+import java.awt.Image;
 
 /**
  *
@@ -13,10 +14,10 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class Airplane extends Obstacle{
 
-    public Airplane(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public Airplane(int locationX, int locationY) {
+        super(locationX, locationY);
     }
-
+  
 
     @Override
     public boolean isVisible() {

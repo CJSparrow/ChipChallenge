@@ -5,6 +5,8 @@
  */
 package chipchallenge.engine.obstacle.staticObs.wall;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jonathan Surya Laksa
@@ -13,11 +15,13 @@ public class RandomWall extends Wall{
 
     private boolean pushed;
     private Wall nextWall;
-    public RandomWall(int locationX, int locationY, String lokasiImg, Wall randomWall) {
-        super(locationX, locationY, lokasiImg);
+
+    public RandomWall(int locationX, int locationY, Wall randomWall) {
+        super(locationX, locationY);
         pushed = false;
         nextWall = randomWall;
     }
+
      @Override
     public boolean isVisible() {
         return true;

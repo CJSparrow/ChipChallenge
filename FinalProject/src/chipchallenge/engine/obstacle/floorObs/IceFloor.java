@@ -5,15 +5,19 @@
  */
 package chipchallenge.engine.obstacle.floorObs;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
 public class IceFloor extends Floor{
 
-    public IceFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public IceFloor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
+
 
     
 }

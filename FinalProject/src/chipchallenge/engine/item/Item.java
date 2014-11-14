@@ -1,5 +1,7 @@
 package chipchallenge.engine.item;
 
+import java.awt.Image;
+
 /**
  *
  * @author TampanCrew
@@ -9,6 +11,7 @@ public abstract class Item {
     private String imgLocation;
     private int x;
     private int y;
+    protected Image img;
     public Item(int locationX, int locationY)
     {
         this.x=locationX;
@@ -38,5 +41,13 @@ public abstract class Item {
     public String getImgLocation()
     {
         return imgLocation;
+    }
+    public Image getImg()
+    {
+        return img;
+    }
+    public boolean isChip()
+    {
+        return false;
     }
 }

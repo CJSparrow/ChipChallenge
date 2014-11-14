@@ -1,5 +1,7 @@
 package chipchallenge.engine.obstacle;
 
+import java.awt.Image;
+
 /**
  *
  * @author TampanCrew
@@ -7,20 +9,19 @@ package chipchallenge.engine.obstacle;
 public abstract class Obstacle {
     private int x;
     private int y;
-    private String imgLocation;
-    public Obstacle(int locationX, int locationY, String lokasiImg)
+    protected Image img;
+    public Obstacle(int locationX, int locationY)
     {
         this.x = locationX;
         this.y = locationY;
-        imgLocation = lokasiImg;
     }
     public abstract boolean isVisible();
     public abstract boolean passAllow();
     public abstract boolean killAllow();
     public abstract boolean pushAllow();
-    public String getImgLocation()
+    public Image getImg()
     {
-        return imgLocation;
+        return img;
     }
     public int getX()
     {

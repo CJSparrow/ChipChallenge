@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.floorObs.dangerousFloor;
 
 import chipchallenge.engine.obstacle.floorObs.Floor;
+import java.awt.Image;
 
 /**
  *
@@ -13,9 +14,12 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
  */
 public class WaterFloor extends Floor {
 
-    public WaterFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public WaterFloor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
+
+
 
     @Override
     public boolean killAllow() {

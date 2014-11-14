@@ -6,6 +6,7 @@
 package chipchallenge.engine.obstacle.floorObs.triggerFloor;
 
 import chipchallenge.engine.obstacle.floorObs.Floor;
+import java.awt.Image;
 
 /**
  *
@@ -14,10 +15,13 @@ import chipchallenge.engine.obstacle.floorObs.Floor;
 public class ColouringWallFloor extends Floor{
 
     private boolean clicked;
-    public ColouringWallFloor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+
+    public ColouringWallFloor(int locationX, int locationY) {
+        super(locationX, locationY);
         clicked=false;
     }
+
+    
     public boolean isClicked()
     {
         return clicked;

@@ -5,15 +5,20 @@
  */
 package chipchallenge.engine.obstacle.staticObs.wall;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
 public class InvisibleWall extends Wall{
 
-    public InvisibleWall(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public InvisibleWall(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
+    
+
      @Override
     public boolean isVisible() {
         return false;

@@ -5,16 +5,17 @@
  */
 package chipchallenge.engine.obstacle;
 
+import java.awt.Image;
+
 /**
  *
  * @author Jonathan Surya Laksa
  */
 public class KotakCoklat extends Obstacle{
 
-    public KotakCoklat(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public KotakCoklat(int locationX, int locationY) {
+        super(locationX, locationY);
     }
-
 
     @Override
     public boolean isVisible() {

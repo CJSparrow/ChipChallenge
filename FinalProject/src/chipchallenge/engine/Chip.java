@@ -1,6 +1,10 @@
 package chipchallenge.engine;
 
 import chipchallenge.engine.item.Item;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -13,14 +17,21 @@ public class Chip {
     private String imgLocation;
     private int x;
     private int y;
+    private Image img;
     public Chip(int locationX, int locationY)
     {
         this.x=locationX;
         this.y=locationY;
-    }
-    public void walk()
-    {
-        
+        URL imgChipURL = getClass().getClassLoader().getResource("images/chipDown.png");
+        if (imgChipURL == null) {
+            System.err.println("Couldn't find file: " + "images/chipDown.png");
+        } else {
+            try {
+                img = ImageIO.read(imgChipURL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
     public void setVisible(boolean visible)
     {
@@ -38,9 +49,10 @@ public class Chip {
     {
         return y;
     }
-    public String getImgLocation()
+    public void move(int x, int y)
     {
-        return imgLocation;
+        this.x=x;
+        this.y=y;
     }
     public boolean getVisible()
     {
@@ -53,5 +65,17 @@ public class Chip {
     public int getChipRemain()
     {
         return chipRemain;
+    }
+    public Image getImg()
+    {
+        return img;
+    }
+    public void setChipRemain(int chip)
+    {
+        chipRemain=chip;
+    }
+    public boolean isChip()
+    {
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package chipchallenge.engine.obstacle.floorObs;
 
 import chipchallenge.engine.obstacle.Obstacle;
+import java.awt.Image;
 
 /**
  *
@@ -8,9 +9,10 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class Floor extends Obstacle {
 
-    public Floor(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+    public Floor(int locationX, int locationY) {
+        super(locationX, locationY);
     }
+
 
     @Override
     public boolean isVisible() {
