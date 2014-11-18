@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
  */
 public class Barrier extends Obstacle{
     private Chip identifyChip;
+    private boolean erase;
 
     public Barrier(int locationX, int locationY, Chip newChip) {
         super(locationX, locationY);
@@ -32,14 +33,16 @@ public class Barrier extends Obstacle{
             }
         }
         identifyChip = newChip;
+        erase = false;
     }
 
     
 
     @Override
     public boolean isVisible() {
-        if(identifyChip.getChipRemain()==0)
+        if(identifyChip.getChipRemain()==0&&identifyChip.getX()==this.getX()&&identifyChip.getY()==this.getY()||erase)
         {
+            erase=true;
             return false;
         }
         else
@@ -50,13 +53,13 @@ public class Barrier extends Obstacle{
 
     @Override
     public boolean passAllow() {
-        if(this.isVisible())
+        if(identifyChip.getChipRemain()==0)
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
@@ -67,6 +70,11 @@ public class Barrier extends Obstacle{
 
     @Override
     public boolean pushAllow() {
+        return false;
+    }
+
+    @Override
+    public boolean isFinish() {
         return false;
     }
     

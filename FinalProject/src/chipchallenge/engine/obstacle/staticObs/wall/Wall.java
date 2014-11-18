@@ -38,5 +38,10 @@ public class Wall extends Obstacle{
     public boolean pushAllow() {
         return false;
     }
+
+    @Override
+    public boolean isFinish() {
+        return false;
+    }
     
 }

@@ -38,5 +38,4 @@ public class Airplane extends Obstacle{
     public boolean pushAllow() {
         return false;
     }
-    
 }
