@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author Jonathan Surya Laksa
+ * @author
  */
 public class FinishFloor extends Floor{
 

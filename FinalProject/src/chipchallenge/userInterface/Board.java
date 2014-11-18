@@ -332,6 +332,9 @@ public class Board extends JPanel implements KeyListener {
                 if (map[posX][posY].killAllow()) {
                     alive = false;
                 }
+                else if(((Floor)map[posX][posY]).isFinish()){
+                    
+                }
             }
         }
         //up

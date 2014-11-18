@@ -9,7 +9,7 @@ import chipchallenge.engine.obstacle.Obstacle;
 public class StaticObstacle extends Obstacle{
 
     public StaticObstacle(int locationX, int locationY, String lokasiImg) {
-        super(locationX, locationY, lokasiImg);
+        super(locationX, locationY);
     }
 
     public void setVisible() {
