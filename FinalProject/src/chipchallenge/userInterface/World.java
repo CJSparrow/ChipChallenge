@@ -24,6 +24,8 @@ public class World {
     private Item[][] item;
     private Chip player;
     private int counterIC;
+    private int posChipX;
+    private int posChipY;
     public World(int level, Chip player)
     {
         counterIC=0;
@@ -35,6 +37,8 @@ public class World {
             case 1 : 
                 map = new Obstacle[10][12];
                 item = new Item[10][12];
+                posChipX=1;
+                posChipY=1;
         //BARIS 1
         map[0][0] = new NormalWall(x, y);
         x += map[0][0].getImg().getWidth(null);
@@ -296,5 +300,15 @@ public class World {
     public int getSumOfIC()
     {
         return counterIC;
+    }
+    
+    public int getPosChipX()
+    {
+        return posChipX;
+    }
+    
+    public int getPosChipY()
+    {
+        return posChipY;
     }
 }

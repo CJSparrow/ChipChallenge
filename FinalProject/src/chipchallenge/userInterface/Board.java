@@ -38,8 +38,6 @@ public class Board extends JPanel implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        posX = 1;
-        posY = 1;
         player = new Chip(98, 98);
         alive = true;
         isFinish = false;
@@ -48,13 +46,11 @@ public class Board extends JPanel implements KeyListener {
         item = world.getItem();
         iC = world.getSumOfIC();
         player.setChipRemain(iC);
+        posX = world.getPosChipX();
+        posY = world.getPosChipY();
     }
 
     public void resetStatus() {
-        map = new Obstacle[10][10];
-        item = new Item[10][10];
-        posX = 1;
-        posY = 1;
         alive = true;
         isFinish = false;
         player = new Chip(98, 98);
@@ -63,6 +59,8 @@ public class Board extends JPanel implements KeyListener {
         item = world.getItem();
         iC = world.getSumOfIC();
         player.setChipRemain(iC);
+        posX = world.getPosChipX();
+        posY = world.getPosChipY();
         score=0;
     }
 
