@@ -34,6 +34,7 @@ public class Floor extends Obstacle {
         return false;
     }
     
+    @Override
     public boolean isFinish()
     {
         return false;

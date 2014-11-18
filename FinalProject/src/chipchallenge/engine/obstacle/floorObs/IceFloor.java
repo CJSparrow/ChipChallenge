@@ -16,8 +16,4 @@ public class IceFloor extends Floor{
     public IceFloor(int locationX, int locationY) {
         super(locationX, locationY);
     }
-
-
-
-    
 }

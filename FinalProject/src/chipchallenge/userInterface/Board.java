@@ -61,7 +61,7 @@ public class Board extends JPanel implements KeyListener {
         player.setChipRemain(iC);
         posX = world.getPosChipX();
         posY = world.getPosChipY();
-        score=0;
+        score = 0;
     }
 
     public void paintComponent(Graphics g) {
@@ -74,12 +74,11 @@ public class Board extends JPanel implements KeyListener {
                 g2.setColor(Color.yellow);
                 g2.drawString("FINISH!", 285, 275);
                 g2.drawString("Your Score Is " + score, 265, 300);
-                //level++;
+                level++;
             } else {
             }
         }
         if (alive == false || isFinish == false) {
-
             for (int i = 0; i < map.length; i++) {
                 for (int j = 0; j < map[i].length; j++) {
                     if (map[i][j] == null) {
@@ -111,10 +110,9 @@ public class Board extends JPanel implements KeyListener {
             if (isFinish) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                     resetStatus();
-                }
-<<<<<<< HEAD
-                else if(((Floor)map[posX][posY]).isFinish()){
-                    
+                } //<<<<<<< HEAD
+                else if (((Floor) map[posX][posY]).isFinish()) {
+
                 }
             }
         }
@@ -126,7 +124,10 @@ public class Board extends JPanel implements KeyListener {
                     player.move(map[posX][posY].getX(), map[posX][posY].getY());
                     if (item[posX][posY] == null) {
                         System.out.println("a");
-=======
+
+                    }
+//=======
+                }
             } else {
                 //left
                 if (ke.getKeyCode() == 37) {
@@ -144,7 +145,7 @@ public class Board extends JPanel implements KeyListener {
                             }
                             item[posX][posY] = null;
                         }
->>>>>>> origin/master
+//>>>>>>> origin/master
                     } else {
                         posY++;
                     }
@@ -232,14 +233,6 @@ public class Board extends JPanel implements KeyListener {
         repaint();
     }
 
-    @Override
-    public void keyTyped(KeyEvent ke) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent ke) {
-    }
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("Chip's Challenge");
         frame.setLocation(500, 140);
@@ -247,5 +240,15 @@ public class Board extends JPanel implements KeyListener {
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 }
