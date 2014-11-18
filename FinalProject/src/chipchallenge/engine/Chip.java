@@ -85,6 +85,7 @@ public class Chip {
     }
     public Image getImg()
     {
+        Image imgReturned = null;
         return img;
     }
     public void setChipRemain(int chip)

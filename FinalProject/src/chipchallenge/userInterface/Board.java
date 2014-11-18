@@ -225,7 +225,7 @@ public class Board extends JPanel implements KeyListener {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Chip'ssssssssssssssssssssssssss Challenge");
+        JFrame frame = new JFrame("Chip's Challenge");
         frame.setLocation(500, 140);
         frame.setContentPane(new Board());
         frame.pack();
