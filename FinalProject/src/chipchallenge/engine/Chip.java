@@ -32,6 +32,7 @@ public class Chip {
                 ex.printStackTrace();
             }
         }
+        inventory = new Item[8];
     }
     public void setVisible(boolean visible)
     {
@@ -61,6 +62,22 @@ public class Chip {
     public Item[] getInventory()
     {
         return inventory;
+    }
+    public void obtainedInventoryItem(Item newOne)
+    {
+        int i = 0;
+        while(i<inventory.length)
+        {
+            if(inventory[i]==null)
+            {
+                inventory[i]=newOne;
+                break;
+            }
+            else
+            {
+                i++;
+            }
+        }
     }
     public int getChipRemain()
     {

@@ -18,6 +18,10 @@ public abstract class Obstacle {
     public abstract boolean isVisible();
     public abstract boolean passAllow();
     public abstract boolean killAllow();
+    public boolean isFinish()
+    {
+        return false;
+    }
     public abstract boolean pushAllow();
     public Image getImg()
     {

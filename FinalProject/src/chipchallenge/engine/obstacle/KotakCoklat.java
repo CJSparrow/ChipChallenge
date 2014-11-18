@@ -36,5 +36,10 @@ public class KotakCoklat extends Obstacle{
     public boolean pushAllow() {
         return true;
     }
+
+    @Override
+    public boolean isFinish() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
