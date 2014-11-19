@@ -34,11 +34,11 @@ public class Board extends JPanel implements KeyListener {
     private World world;
 
     public Board() {
-        setPreferredSize(new Dimension(580, 580));
+        setPreferredSize(new Dimension(1360,720));
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        player = new Chip(98, 98);
+        player = new Chip(0, 0);
         alive = true;
         isFinish = false;
         world = new World(level, player);
@@ -48,12 +48,13 @@ public class Board extends JPanel implements KeyListener {
         player.setChipRemain(iC);
         posX = world.getPosChipX();
         posY = world.getPosChipY();
+        player.move(map[posX][posY].getX(),map[posX][posY].getY());
     }
 
     public void resetStatus() {
         alive = true;
         isFinish = false;
-        player = new Chip(98, 98);
+        player = new Chip(0, 0);
         world = new World(level, player);
         map = world.getMap();
         item = world.getItem();
@@ -61,6 +62,7 @@ public class Board extends JPanel implements KeyListener {
         player.setChipRemain(iC);
         posX = world.getPosChipX();
         posY = world.getPosChipY();
+        player.move(map[posX][posY].getX(),map[posX][posY].getY());
         score = 0;
     }
 
@@ -105,28 +107,10 @@ public class Board extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-
         if (alive) {
             if (isFinish) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                     resetStatus();
-                } //<<<<<<< HEAD
-                else if (((Floor) map[posX][posY]).isFinish()) {
-
-                }
-            }
-        }
-        //up
-        if (ke.getKeyCode() == 38) {
-            if (alive) {
-                posX--;
-                if (map[posX][posY].passAllow()) {
-                    player.move(map[posX][posY].getX(), map[posX][posY].getY());
-                    if (item[posX][posY] == null) {
-                        System.out.println("a");
-
-                    }
-//=======
                 }
             } else {
                 //left
@@ -145,7 +129,6 @@ public class Board extends JPanel implements KeyListener {
                             }
                             item[posX][posY] = null;
                         }
-//>>>>>>> origin/master
                     } else {
                         posY++;
                     }
@@ -235,7 +218,6 @@ public class Board extends JPanel implements KeyListener {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Chip's Challenge");
-        frame.setLocation(500, 140);
         frame.setContentPane(new Board());
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -244,11 +226,11 @@ public class Board extends JPanel implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
+
     }
 }
