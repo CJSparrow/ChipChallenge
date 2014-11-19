@@ -16,23 +16,59 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 
 /**
- *
+ * class ini merepresentasikan papan permainan nya dari chip's challenge
  * @author TampanCrew
  */
 public class Board extends JPanel implements KeyListener {
-
+    /**
+     * array 2 dimensi yang merepresentasikan posisi dari obstacle-obstacle dalam board
+     */
     private Obstacle[][] map;
+    /**
+     * array 2 dimensi yang merepresentasikan posisi dari item-item dalam board
+     */
     private Item[][] item;
+    /**
+     * merepresentasikan player yang akan kita mainkan
+     */
     private Chip player;
+    /**
+     * posisi x dari player nya
+     */
     private int posX;
+    /**
+     * posisi y dari player nya
+     */
     private int posY;
+    /**
+     * jumlah IC yang ada dalam board
+     */
     private int iC;
+    /**
+     * atribut boolean untuk menandakan apakah player masih hidup atau tidak
+     */
     private boolean alive;
+    /**
+     * atribut boolean untuk menandakan apakah player sudah mencapai finsih atau belum
+     */
     private boolean isFinish;
+    /**
+     * untuk menandakan sudah ada di level berapa
+     */
     private int level = 1;
+    /**
+     * skor dari setiap level
+     */
     private int score = 0;
+    /**
+     * objek dari class world
+     */
     private World world;
-
+    
+    /**
+     * constructor dari class board
+     * inisialisasi atribut dan menentukan ukuran awal board
+     */
     public Board() {
         setPreferredSize(new Dimension(1360,720));
         addKeyListener(this);
@@ -50,7 +86,10 @@ public class Board extends JPanel implements KeyListener {
         posY = world.getPosChipY();
         player.move(map[posX][posY].getX(),map[posX][posY].getY());
     }
-
+    
+    /**
+     * method untuk mereset permainan kembali ke awal (pada level yang sama)
+     */
     public void resetStatus() {
         alive = true;
         isFinish = false;
@@ -65,7 +104,11 @@ public class Board extends JPanel implements KeyListener {
         player.move(map[posX][posY].getX(),map[posX][posY].getY());
         score = 0;
     }
-
+    
+    /**
+     * untuk menggambar semua unsur boardnya dan juga menampilkan score
+     * @param g 
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(Color.white);
@@ -104,7 +147,11 @@ public class Board extends JPanel implements KeyListener {
             score++;
         }
     }
-
+    
+    /**
+     * method untuk melakukan sesuatu saat tombol pada keyboard ditekan
+     * @param ke : event yang akan dilakukan, misalnya pada kasus ini event nya yaitu untuk bergerak 4 arah(atas,bawah,kiri,kanan)
+     */
     @Override
     public void keyPressed(KeyEvent ke) {
         if (alive) {

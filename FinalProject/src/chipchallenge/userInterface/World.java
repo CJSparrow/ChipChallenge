@@ -286,6 +286,7 @@ public class World {
                 map[9][9] = new NormalWall(x, y);
                 x += map[9][9].getImg().getWidth(null);
                 break;
+                
             //LEVEL 2    
             case 2 :
                 map = new Obstacle[12][15];
@@ -298,33 +299,31 @@ public class World {
                 //BARIS 1
                 map[0][0] = new NormalWall(x, y);
                 x += map[0][0].getImg().getWidth(null);
-                map[0][1] = new PlainFloor(x, y);
+                map[0][1] = new NormalWall(x, y);
                 x += map[0][1].getImg().getWidth(null);
-                map[0][2] = new FireFloor(x, y);
+                map[0][2] = new NormalWall(x, y);
                 x += map[0][2].getImg().getWidth(null);
-                map[0][3] = new PlainFloor(x, y);
+                map[0][3] = new NormalWall(x, y);
                 x += map[0][3].getImg().getWidth(null);
-                map[0][4] = new FireFloor(x, y);
+                map[0][4] = new NormalWall(x, y);
                 x += map[0][4].getImg().getWidth(null);
-                map[0][5] = new PlainFloor(x, y);
+                map[0][5] = new NormalWall(x, y);
                 x += map[0][5].getImg().getWidth(null);
-                map[0][6] = new FireFloor(x, y);
+                map[0][6] = new NormalWall(x, y);
                 x += map[0][6].getImg().getWidth(null);
-                map[0][7] = new PlainFloor(x, y);
+                map[0][7] = new NormalWall(x, y);
                 x += map[0][7].getImg().getWidth(null);
-                map[0][8] = new FireFloor(x, y);
+                map[0][8] = new NormalWall(x, y);
                 x += map[0][8].getImg().getWidth(null);
-                map[0][9] = new PlainFloor(x, y);
+                map[0][9] = new NormalWall(x, y);
                 x += map[0][9].getImg().getWidth(null);
-                map[0][10] = new FireFloor(x, y);
+                map[0][10] = new NormalWall(x, y);
                 x += map[0][10].getImg().getWidth(null);
-                map[0][11] = new FireFloor(x, y);
+                map[0][11] = new NormalWall(x, y);
                 x += map[0][11].getImg().getWidth(null);
-                map[0][12] = new FireFloor(x, y);
+                map[0][12] = new NormalWall(x, y);
                 x += map[0][12].getImg().getWidth(null);
-                map[0][13] = new PlainFloor(x, y);
-                item[0][13] = new IntergratedCircuit(x, y);
-                counterIC++;
+                map[0][13] = new NormalWall(x, y);
                 x += map[0][13].getImg().getWidth(null);
                 map[0][14] = new NormalWall(x, y);
                 x += map[0][14].getImg().getWidth(null);
@@ -713,6 +712,7 @@ public class World {
                 map[11][14] = new NormalWall(x, y);
                 x += map[11][14].getImg().getWidth(null);
                 break;
+                
             //Level3
             case 3:
                 map = new Obstacle[12][20];
@@ -1262,7 +1262,6 @@ public class World {
                 map[11][19] = new NormalWall(x,y);
                 x += map[11][19].getImg().getWidth(null);
                 break;
-            default : break;
         }
     }
 
