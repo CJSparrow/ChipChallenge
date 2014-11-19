@@ -34,7 +34,7 @@ public class Board extends JPanel implements KeyListener {
     private World world;
 
     public Board() {
-        setPreferredSize(new Dimension(1600,900));
+        setPreferredSize(new Dimension(1360,720));
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
