@@ -285,14 +285,15 @@ public class World {
                 x += map[9][8].getImg().getWidth(null);
                 map[9][9] = new NormalWall(x, y);
                 x += map[9][9].getImg().getWidth(null);
-
-                
+                break;
             //LEVEL 2    
-            case 2:
+            case 2 :
                 map = new Obstacle[12][15];
                 item = new Item[12][15];
                 posChipX = 8;
                 posChipY = 7;
+                x = 50;
+                y = 50;
 
                 //BARIS 1
                 map[0][0] = new NormalWall(x, y);
@@ -677,7 +678,7 @@ public class World {
                 x += map[10][13].getImg().getWidth(null);
                 map[10][14] = new NormalWall(x, y);
                 x += map[10][14].getImg().getWidth(null);
-                
+
                 //BARIS 12
                 x = 50;
                 y += map[10][0].getImg().getHeight(null);
@@ -711,6 +712,9 @@ public class World {
                 x += map[11][13].getImg().getWidth(null);
                 map[11][14] = new NormalWall(x, y);
                 x += map[11][14].getImg().getWidth(null);
+                break;
+                
+            default : break;
         }
     }
 
