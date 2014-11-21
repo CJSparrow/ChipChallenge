@@ -27,6 +27,10 @@ public abstract class Obstacle {
     {
         return img;
     }
+    public void setImg(int idx)
+    {
+        img=img;
+    }
     public int getX()
     {
         return x;
