@@ -380,6 +380,7 @@ public class World {
                 arrOfFF.add((FireFloor)map[1][9]);
                 x += map[1][9].getImg().getWidth(null);
                 map[1][10] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][10]);
                 x += map[1][10].getImg().getWidth(null);
                 map[1][11] = new FireFloor(x, y);
                 arrOfFF.add((FireFloor)map[1][11]);
