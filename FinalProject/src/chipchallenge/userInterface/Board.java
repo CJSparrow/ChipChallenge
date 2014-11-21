@@ -81,7 +81,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private Font fonts;
 
-    private ArrayList<FireFloor> arrOfFF= new ArrayList();
+    private ArrayList<FireFloor> arrOfFF = new ArrayList();
+    
+    private FinishFloor ff;
 
     /**
      * constructor dari class board inisialisasi atribut dan menentukan ukuran
@@ -103,18 +105,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         posX = world.getPosChipX();
         posY = world.getPosChipY();
         player.move(map[posX][posY].getX(), map[posX][posY].getY());
-        timer = new Timer(35, this);
+        timer = new Timer(60, this);
         timer.start();
         fonts = new Font("Times New Roman", 100, 15);
-        for (int j = 0; j < map.length; j++) {
-            for (int k = 0; k < map[0].length; k++) {
-                if (map[j][k] == null) {
-
-                } else if (map[j][k].getClass().equals(new FireFloor(0, 0).getClass())) {
-                    arrOfFF.add((FireFloor)map[j][k]);
-                }
-            }
-        }
+        arrOfFF=world.getArrOfFF();
+        ff=world.getFinishFloor();
     }
 
     /**
@@ -134,15 +129,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.move(map[posX][posY].getX(), map[posX][posY].getY());
         score = 0;
         idxImgChip = 1;
-        for (int j = 0; j < map.length; j++) {
-            for (int k = 0; k < map[0].length; k++) {
-                if (map[j][k] == null) {
-
-                } else if (map[j][k].getClass().equals(new FireFloor(0, 0).getClass())) {
-                    arrOfFF.add((FireFloor)map[j][k]);
-                }
-            }
-        }
+        arrOfFF=world.getArrOfFF();
+        ff=world.getFinishFloor();
         timer.start();
     }
 
@@ -299,26 +287,22 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                 }
                 if (map[posX][posY].killAllow()) {
                     if (map[posX][posY].getClass().equals(new FireFloor(0, 0).getClass())) {
-                        if(player.immuneFire())
-                        {
-                            
-                        }
-                        else
-                        {
-                            idxImgChip=0;
-                            alive=false;
+                        if (player.immuneFire()) {
+
+                        } else {
+                            idxImgChip = 0;
+                            alive = false;
                         }
                     } else if (map[posX][posY].getClass().equals(new WaterFloor(0, 0).getClass())) {
-                        if(player.immuneWater())
-                        {
-                            
-                        }
-                        else
-                        {
-                            alive=false;
+                        if (player.immuneWater()) {
+
+                        } else {
+                            alive = false;
                         }
                     }
-                    timer.stop();
+                    if (alive == false) {
+                        timer.stop();
+                    }
                 }
                 if (map[posX][posY].isFinish()) {
                     isFinish = true;
@@ -336,47 +320,57 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent ae) {
         // animasi api
         if (i % 6 == 0) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
         } else if (i % 6 == 1) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
         } else if (i % 6 == 2) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
         } else if (i % 6 == 3) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
         } else if (i % 6 == 4) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
         } else if (i % 6 == 5) {
-            int j =0;
-            while(j<arrOfFF.size())
-            {
-                arrOfFF.get(j).setImg(i%6);
+            int j = 0;
+            while (j < arrOfFF.size()) {
+                arrOfFF.get(j).setImg(i % 6);
                 j++;
             }
+        }
+        if(i%4==0)
+        {
+            ff.setImg(i%4);
+        }
+        else if(i%4==1)
+        {
+            ff.setImg(i%4);
+        }
+        else if(i%4==2)
+        {
+            ff.setImg(i%4);
+        }
+        else if(i%4==3)
+        {
+            ff.setImg(i%4);
         }
         i++;
         repaint();
