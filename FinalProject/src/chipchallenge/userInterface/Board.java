@@ -315,7 +315,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
         repaint();
     }
-
+    
+    /**
+     * method override untuk membuat animasi nya
+     * @param ae : action event
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         // animasi api
