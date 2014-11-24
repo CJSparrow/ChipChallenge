@@ -15,6 +15,7 @@ import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
 import chipchallenge.engine.obstacle.floorObs.shiftFloor.FinishFloor;
 import chipchallenge.engine.obstacle.staticObs.Barrier;
 import chipchallenge.engine.obstacle.staticObs.wall.NormalWall;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +29,8 @@ public class World {
     private int counterIC;
     private int posChipX;
     private int posChipY;
+    private FinishFloor ff;
+    private ArrayList<FireFloor> arrOfFF = new ArrayList();
 
     public World(int level, Chip player) {
         counterIC = 0;
@@ -73,6 +76,7 @@ public class World {
                 map[1][2] = new NormalWall(x, y);
                 x += map[1][2].getImg().getWidth(null);
                 map[1][3] = new FinishFloor(x, y);
+                ff=(FinishFloor)map[1][3];
                 x += map[1][3].getImg().getWidth(null);
                 map[1][4] = new PlainFloor(x, y);
                 x += map[1][4].getImg().getWidth(null);
@@ -143,6 +147,7 @@ public class World {
                 map[4][1] = new PlainFloor(x, y);
                 x += map[4][1].getImg().getWidth(null);
                 map[4][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[4][2]);
                 x += map[4][2].getImg().getWidth(null);
                 map[4][3] = new PlainFloor(x, y);
                 x += map[4][3].getImg().getWidth(null);
@@ -151,12 +156,15 @@ public class World {
                 counterIC++;
                 x += map[4][4].getImg().getWidth(null);
                 map[4][5] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[4][5]);
                 x += map[4][5].getImg().getWidth(null);
                 map[4][6] = new PlainFloor(x, y);
                 x += map[4][6].getImg().getWidth(null);
                 map[4][7] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[4][7]);
                 x += map[4][7].getImg().getWidth(null);
                 map[4][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[4][8]);
                 x += map[4][8].getImg().getWidth(null);
                 map[4][9] = new NormalWall(x, y);
                 x += map[4][9].getImg().getWidth(null);
@@ -175,6 +183,7 @@ public class World {
                 map[5][3] = new PlainFloor(x, y);
                 x += map[5][3].getImg().getWidth(null);
                 map[5][4] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[5][4]);
                 x += map[5][4].getImg().getWidth(null);
                 map[5][5] = new PlainFloor(x, y);
                 item[5][5] = new IntergratedCircuit(x, y);
@@ -185,6 +194,7 @@ public class World {
                 map[5][7] = new PlainFloor(x, y);
                 x += map[5][7].getImg().getWidth(null);
                 map[5][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[5][8]);
                 x += map[5][8].getImg().getWidth(null);
                 map[5][9] = new NormalWall(x, y);
                 x += map[5][9].getImg().getWidth(null);
@@ -197,18 +207,23 @@ public class World {
                 map[6][1] = new PlainFloor(x, y);
                 x += map[6][1].getImg().getWidth(null);
                 map[6][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][2]);
                 x += map[6][2].getImg().getWidth(null);
                 map[6][3] = new PlainFloor(x, y);
                 x += map[6][3].getImg().getWidth(null);
                 map[6][4] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][4]);
                 x += map[6][4].getImg().getWidth(null);
                 map[6][5] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][5]);
                 x += map[6][5].getImg().getWidth(null);
                 map[6][6] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][6]);
                 x += map[6][6].getImg().getWidth(null);
                 map[6][7] = new PlainFloor(x, y);
                 x += map[6][7].getImg().getWidth(null);
                 map[6][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][8]);
                 x += map[6][8].getImg().getWidth(null);
                 map[6][9] = new NormalWall(x, y);
                 x += map[6][9].getImg().getWidth(null);
@@ -225,6 +240,7 @@ public class World {
                 map[7][3] = new PlainFloor(x, y);
                 x += map[7][3].getImg().getWidth(null);
                 map[7][4] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[7][4]);
                 x += map[7][4].getImg().getWidth(null);
                 map[7][5] = new PlainFloor(x, y);
                 x += map[7][5].getImg().getWidth(null);
@@ -233,6 +249,7 @@ public class World {
                 map[7][7] = new PlainFloor(x, y);
                 x += map[7][7].getImg().getWidth(null);
                 map[7][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[7][8]);
                 x += map[7][8].getImg().getWidth(null);
                 map[7][9] = new NormalWall(x, y);
                 x += map[7][9].getImg().getWidth(null);
@@ -243,8 +260,10 @@ public class World {
                 map[8][0] = new NormalWall(x, y);
                 x += map[8][0].getImg().getWidth(null);
                 map[8][1] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[8][1]);
                 x += map[8][1].getImg().getWidth(null);
                 map[8][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[8][2]);
                 x += map[8][2].getImg().getWidth(null);
                 map[8][3] = new PlainFloor(x, y);
                 x += map[8][3].getImg().getWidth(null);
@@ -253,10 +272,13 @@ public class World {
                 map[8][5] = new PlainFloor(x, y);
                 x += map[8][5].getImg().getWidth(null);
                 map[8][6] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[8][6]);
                 x += map[8][6].getImg().getWidth(null);
                 map[8][7] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[8][7]);
                 x += map[8][7].getImg().getWidth(null);
                 map[8][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[8][8]);
                 x += map[8][8].getImg().getWidth(null);
                 map[8][9] = new NormalWall(x, y);
                 x += map[8][9].getImg().getWidth(null);
@@ -340,24 +362,31 @@ public class World {
                 counterIC++;
                 x += map[1][2].getImg().getWidth(null);
                 map[1][3] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][3]);
                 x += map[1][3].getImg().getWidth(null);
                 map[1][4] = new PlainFloor(x, y);
                 x += map[1][4].getImg().getWidth(null);
                 map[1][5] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][5]);
                 x += map[1][5].getImg().getWidth(null);
                 map[1][6] = new PlainFloor(x, y);
                 x += map[1][6].getImg().getWidth(null);
                 map[1][7] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][7]);
                 x += map[1][7].getImg().getWidth(null);
                 map[1][8] = new PlainFloor(x, y);
                 x += map[1][8].getImg().getWidth(null);
                 map[1][9] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][9]);
                 x += map[1][9].getImg().getWidth(null);
                 map[1][10] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][10]);
                 x += map[1][10].getImg().getWidth(null);
                 map[1][11] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][11]);
                 x += map[1][11].getImg().getWidth(null);
                 map[1][12] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[1][12]);
                 x += map[1][12].getImg().getWidth(null);
                 map[1][13] = new PlainFloor(x, y);
                 x += map[1][13].getImg().getWidth(null);
@@ -372,22 +401,27 @@ public class World {
                 map[2][1] = new PlainFloor(x, y);
                 x += map[2][1].getImg().getWidth(null);
                 map[2][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[2][2]);
                 x += map[2][2].getImg().getWidth(null);
                 map[2][3] = new PlainFloor(x, y);
                 x += map[2][3].getImg().getWidth(null);
                 map[2][4] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[2][4]);
                 x += map[2][4].getImg().getWidth(null);
                 map[2][5] = new PlainFloor(x, y);
                 x += map[2][5].getImg().getWidth(null);
                 map[2][6] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[2][6]);
                 x += map[2][6].getImg().getWidth(null);
                 map[2][7] = new PlainFloor(x, y);
                 x += map[2][7].getImg().getWidth(null);
                 map[2][8] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[2][8]);
                 x += map[2][8].getImg().getWidth(null);
                 map[2][9] = new PlainFloor(x, y);
                 x += map[2][9].getImg().getWidth(null);
                 map[2][10] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[2][10]);
                 x += map[2][10].getImg().getWidth(null);
                 map[2][11] = new PlainFloor(x, y);
                 x += map[2][11].getImg().getWidth(null);
@@ -696,6 +730,7 @@ public class World {
                 map[11][6] = new WaterFloor(x, y);
                 x += map[11][6].getImg().getWidth(null);
                 map[11][7] = new FinishFloor(x, y);
+                ff=(FinishFloor)map[11][7];
                 x += map[11][7].getImg().getWidth(null);
                 map[11][8] = new WaterFloor(x, y);
                 x += map[11][8].getImg().getWidth(null);
@@ -837,10 +872,13 @@ public class World {
                 map[2][11] = new NormalWall(x, y);
                 x += map[2][11].getImg().getWidth(null);
                 map[2][12] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[2][12]);
                 x += map[2][12].getImg().getWidth(null);
                 map[2][13] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[2][13]);
                 x += map[2][13].getImg().getWidth(null);
                 map[2][14] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[2][14]);
                 x += map[2][14].getImg().getWidth(null);
                 map[2][15] = new PlainFloor(x,y);
                 x += map[2][15].getImg().getWidth(null);
@@ -879,15 +917,18 @@ public class World {
                 map[3][9] = new NormalWall(x, y);
                 x += map[3][9].getImg().getWidth(null);
                 map[3][10] = new FinishFloor(x, y);
+                ff=(FinishFloor)map[3][10];
                 x += map[3][10].getImg().getWidth(null);
                 map[3][11] = new NormalWall(x, y);
                 x += map[3][11].getImg().getWidth(null);
                 map[3][12] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[3][12]);
                 x += map[3][12].getImg().getWidth(null);
                 map[3][13] = new PlainFloor(x,y);
                 item[3][13] = new WaterShoes(x,y);
                 x += map[3][13].getImg().getWidth(null);
                 map[3][14] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[3][14]);
                 x += map[3][14].getImg().getWidth(null);
                 map[3][15] = new PlainFloor(x,y);
                 x += map[3][15].getImg().getWidth(null);
@@ -908,6 +949,7 @@ public class World {
                 map[4][1] = new PlainFloor(x, y);
                 x += map[4][1].getImg().getWidth(null);
                 map[4][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[4][2]);
                 x += map[4][2].getImg().getWidth(null);
                 map[4][3] = new PlainFloor(x, y);
                 x += map[4][3].getImg().getWidth(null);
@@ -928,10 +970,13 @@ public class World {
                 map[4][11] = new NormalWall(x, y);
                 x += map[4][11].getImg().getWidth(null);
                 map[4][12] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[4][12]);
                 x += map[4][12].getImg().getWidth(null);
                 map[4][13] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[4][13]);
                 x += map[4][13].getImg().getWidth(null);
                 map[4][14] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[4][14]);
                 x += map[4][14].getImg().getWidth(null);
                 map[4][15] = new PlainFloor(x,y);
                 x += map[4][15].getImg().getWidth(null);
@@ -950,8 +995,10 @@ public class World {
                 map[5][0] = new NormalWall(x, y);
                 x += map[5][0].getImg().getWidth(null);
                 map[5][1] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[5][1]);
                 x += map[5][1].getImg().getWidth(null);
                 map[5][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[5][2]);
                 x += map[5][2].getImg().getWidth(null);
                 map[5][3] = new PlainFloor(x, y);
                 x += map[5][3].getImg().getWidth(null);
@@ -1000,6 +1047,7 @@ public class World {
                 counterIC++;
                 x += map[6][1].getImg().getWidth(null);
                 map[6][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[6][2]);
                 x += map[6][2].getImg().getWidth(null);
                 map[6][3] = new PlainFloor(x, y);
                 x += map[6][3].getImg().getWidth(null);
@@ -1132,6 +1180,7 @@ public class World {
                 map[9][1] = new PlainFloor(x, y);
                 x += map[9][1].getImg().getWidth(null);
                 map[9][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[9][2]);
                 x += map[9][2].getImg().getWidth(null);
                 map[9][3] = new PlainFloor(x, y);
                 x += map[9][3].getImg().getWidth(null);
@@ -1168,6 +1217,7 @@ public class World {
                 map[9][17] = new PlainFloor(x,y);
                 x += map[9][17].getImg().getWidth(null);
                 map[9][18] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[9][18]);
                 x += map[9][18].getImg().getWidth(null);
                 map[9][19] = new NormalWall(x,y);
                 x += map[9][19].getImg().getWidth(null);
@@ -1182,8 +1232,10 @@ public class World {
                 counterIC++;
                 x += map[10][1].getImg().getWidth(null);
                 map[10][2] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[10][2]);
                 x += map[10][2].getImg().getWidth(null);
                 map[10][3] = new FireFloor(x, y);
+                arrOfFF.add((FireFloor)map[10][3]);
                 x += map[10][3].getImg().getWidth(null);
                 map[10][4] = new WaterFloor(x, y);
                 x += map[10][4].getImg().getWidth(null);
@@ -1212,8 +1264,10 @@ public class World {
                 map[10][16] = new PlainFloor(x,y);
                 x += map[10][16].getImg().getWidth(null);
                 map[10][17] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[10][17]);
                 x += map[10][17].getImg().getWidth(null);
                 map[10][18] = new FireFloor(x,y);
+                arrOfFF.add((FireFloor)map[10][18]);
                 x += map[10][18].getImg().getWidth(null);
                 map[10][19] = new NormalWall(x,y);
                 x += map[10][19].getImg().getWidth(null);
@@ -1283,5 +1337,15 @@ public class World {
 
     public int getPosChipY() {
         return posChipY;
+    }
+    
+    public ArrayList<FireFloor> getArrOfFF()
+    {
+        return arrOfFF;
+    }
+    
+    public FinishFloor getFinishFloor()
+    {
+        return ff;
     }
 }

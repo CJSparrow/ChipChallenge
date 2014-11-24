@@ -80,9 +80,15 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private int i = 0;
 
     private Font fonts;
-
+    
+    /**
+     * atribut arraylist untuk menampung fire floor
+     */
     private ArrayList<FireFloor> arrOfFF = new ArrayList();
     
+    /**
+     * objek dari finish floor, yaitu floor yang akan mengakhiri permainan
+     */
     private FinishFloor ff;
 
     /**
