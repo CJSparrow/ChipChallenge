@@ -13,13 +13,26 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class ini merepresentasikan barrier yang menghalangi jalan, dapat dibuka jika semua IC dalam stage tersebutsudah diambil
+ * @author tampanCrew
  */
 public class Barrier extends Obstacle{
+    /**
+     * atribut untuk menyimpan objek chip
+     */
     private Chip identifyChip;
+    /**
+     * true : barrier menjadi tidak ada
+     * false : barrier tetap ada
+     */
     private boolean erase;
-
+    
+    /**
+     * constructor dari class Barrier
+     * @param locationX : posisi x dari barrier
+     * @param locationY : posisi y dari barrier
+     * @param newChip : objek baru chip
+     */
     public Barrier(int locationX, int locationY, Chip newChip) {
         super(locationX, locationY);
         URL imgBarrierURL = getClass().getClassLoader().getResource("images/barrier.png");
@@ -36,8 +49,11 @@ public class Barrier extends Obstacle{
         erase = false;
     }
 
-    
-
+    /**
+     * untuk menandakan apakah barrier masih ada / tidak
+     * @return true : jika masih ada
+     * false : jika sudah tidak ada
+     */
     @Override
     public boolean isVisible() {
         if(identifyChip.getChipRemain()==0&&identifyChip.getX()==this.getX()&&identifyChip.getY()==this.getY()||erase)
@@ -50,7 +66,12 @@ public class Barrier extends Obstacle{
             return true;
         }
     }
-
+    
+    /**
+     * untuk menandakan apakah barrier bisa dilewati atau tidak
+     * @return true : bisa dilewati
+     * false : tidak bisa dilewati
+     */
     @Override
     public boolean passAllow() {
         if(identifyChip.getChipRemain()==0)
@@ -62,17 +83,32 @@ public class Barrier extends Obstacle{
             return false;
         }
     }
-
+    
+    /**
+     * menandakan apakah barrier mematikan / tidak
+     * @return true jika mematikan
+     * false jika aman
+     */
     @Override
     public boolean killAllow() {
         return false;
     }
-
+    
+    /**
+     * menandakan apakah barrier bisa didorong atau tidak
+     * @return true jika bisa didorong
+     * false jika tidak bisa didorong
+     */
     @Override
     public boolean pushAllow() {
         return false;
     }
-
+    
+    /**
+     * menandakan apakah chip sudah sampai ke finish jika menyentuh barrier
+     * @return true jika sudah finish
+     * false jika belum
+     */
     @Override
     public boolean isFinish() {
         return false;
