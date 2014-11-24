@@ -17,11 +17,10 @@ import javax.imageio.ImageIO;
  * @author Jonathan Surya Laksa
  */
 public class RandomObstacle extends Obstacle{
-    private Chip identifyChip;
     private boolean pushed;
     private Obstacle nextObstacle;
 
-    public RandomObstacle(int locationX, int locationY, Obstacle nextObs, Chip newChip) {
+    public RandomObstacle(int locationX, int locationY, Obstacle nextObs) {
         super(locationX, locationY);
         URL imgRandomWallURL = getClass().getClassLoader().getResource("images/randomWall.png");
         if (imgRandomWallURL == null) {
@@ -33,7 +32,6 @@ public class RandomObstacle extends Obstacle{
                 ex.printStackTrace();
             }
         }
-        identifyChip = newChip;
         pushed = false;
         nextObstacle = nextObs;
     }

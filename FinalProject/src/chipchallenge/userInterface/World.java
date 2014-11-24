@@ -16,6 +16,7 @@ import chipchallenge.engine.obstacle.floorObs.shiftFloor.FinishFloor;
 import chipchallenge.engine.obstacle.floorObs.triggerFloor.RemovalFloor;
 import chipchallenge.engine.obstacle.staticObs.Barrier;
 import chipchallenge.engine.obstacle.staticObs.wall.NormalWall;
+import chipchallenge.engine.obstacle.staticObs.wall.RandomObstacle;
 import java.util.ArrayList;
 
 /**
@@ -75,7 +76,7 @@ public class World {
                 x += map[1][0].getImg().getWidth(null);
                 map[1][1] = new PlainFloor(x, y);
                 x += map[1][1].getImg().getWidth(null);
-                map[1][2] = new NormalWall(x, y);
+                map[1][2] = new NormalWall(x,y);
                 x += map[1][2].getImg().getWidth(null);
                 map[1][3] = new FinishFloor(x, y);
                 ff=(FinishFloor)map[1][3];
