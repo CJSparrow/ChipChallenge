@@ -65,7 +65,12 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     /**
      * skor dari setiap level
      */
-    private int score = 0;
+    private int totalScore = 0;
+
+    private int timeBonusScore = 5000;
+
+    private int chipScore = 0;
+
     /**
      * objek dari class world
      */
@@ -82,15 +87,24 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private Font fonts;
 
     private ArrayList<FireFloor> arrOfFF = new ArrayList();
-    
+
+    private ArrayList<WaterFloor> arrOfWF = new ArrayList();
+
     private FinishFloor ff;
+
+    private InventoryLayout layout = new InventoryLayout();
+
+    private int widthLayout;
+
+    private int heightLayout;
+
+    private boolean canMove = false;
 
     /**
      * constructor dari class board inisialisasi atribut dan menentukan ukuran
      * awal board
      */
     public Board() {
-        setPreferredSize(new Dimension(1360, 720));
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -108,8 +122,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         timer = new Timer(60, this);
         timer.start();
         fonts = new Font("Times New Roman", 100, 15);
-        arrOfFF=world.getArrOfFF();
-        ff=world.getFinishFloor();
+        arrOfFF = world.getArrOfFF();
+        arrOfWF = world.getArrOfWF();
+        ff = world.getFinishFloor();
+        setPreferredSize(new Dimension(1360, 720));
+        setBackground(Color.black);
     }
 
     /**
@@ -127,10 +144,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         posX = world.getPosChipX();
         posY = world.getPosChipY();
         player.move(map[posX][posY].getX(), map[posX][posY].getY());
-        score = 0;
+        totalScore = 0;
         idxImgChip = 1;
-        arrOfFF=world.getArrOfFF();
-        ff=world.getFinishFloor();
+        arrOfFF = world.getArrOfFF();
+        arrOfWF = world.getArrOfWF();
+        ff = world.getFinishFloor();
         timer.start();
     }
 
@@ -141,19 +159,25 @@ public class Board extends JPanel implements ActionListener, KeyListener {
      */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBackground(Color.white);
         if (alive) {
             if (isFinish) {
+                timer.stop();
                 Graphics2D g2 = (Graphics2D) g;
                 g2.fillRect(50, 50, 500, 500);
                 g2.setColor(Color.yellow);
                 g2.setFont(fonts);
                 g2.drawString("FINISH!", 285, 275);
-                g2.drawString("Your Score Is " + score, 265, 300);
+                totalScore += timeBonusScore + chipScore;
+                g2.drawString("Your Score Now Is " + totalScore, 265, 300);
             } else {
             }
         }
-        if (alive == false || isFinish == false) {
+        else
+        {
+            timer.stop();
+        }
+        if (isFinish == false) {
+            // gambar map dan item
             for (int i = 0; i < map.length; i++) {
                 for (int j = 0; j < map[i].length; j++) {
                     if (map[i][j] == null) {
@@ -173,8 +197,27 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     }
                 }
             }
+            // gambar layout inventory
+            widthLayout = 96 + (map[0][map[0].length - 1].getX());
+            heightLayout = 48 * (map.length / 2);
+            g.drawImage(layout.getImg(), widthLayout, heightLayout, null);
+            int jkl = 0;
+            while (jkl < player.getInventory().length) {
+                if (player.getInventory()[jkl] != null) {
+                    g.drawImage(player.getInventory()[jkl].getImg(), widthLayout, heightLayout, null);
+                    jkl++;
+                    if (jkl == 5) {
+                        heightLayout += 48;
+                        widthLayout = 48 * (map[0].length + 4);
+                    } else {
+                        widthLayout += 48;
+                    }
+                } else {
+                    break;
+                }
+            }
+            //gambar player
             g.drawImage(player.getImg(idxImgChip), player.getX(), player.getY(), null);
-            score++;
         }
     }
 
@@ -186,6 +229,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent ke) {
+
         if (alive) {
             if (isFinish) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -198,18 +242,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     posY--;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 3;
-                        player.move(map[posX][posY].getX(), map[posX][posY].getY());
-                        if (item[posX][posY] == null) {
-                        } else {
-                            if (item[posX][posY].canBeObtained()) {
-                                player.obtainedInventoryItem(item[posX][posY]);
-                            } else {
-                                iC--;
-                                player.setChipRemain(iC);
-
-                            }
-                            item[posX][posY] = null;
-                        }
+                        canMove = true;
                     } else {
                         posY++;
                     }
@@ -220,18 +253,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     posX--;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 2;
-                        player.move(map[posX][posY].getX(), map[posX][posY].getY());
-                        if (item[posX][posY] == null) {
-                        } else {
-                            if (item[posX][posY].canBeObtained()) {
-                                player.obtainedInventoryItem(item[posX][posY]);
-                            } else {
-                                iC--;
-                                player.setChipRemain(iC);
-
-                            }
-                            item[posX][posY] = null;
-                        }
+                        canMove = true;
                     } else {
                         posX++;
                     }
@@ -242,18 +264,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     posY++;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 4;
-                        player.move(map[posX][posY].getX(), map[posX][posY].getY());
-                        if (item[posX][posY] == null) {
-                        } else {
-                            if (item[posX][posY].canBeObtained()) {
-                                player.obtainedInventoryItem(item[posX][posY]);
-                            } else {
-                                iC--;
-                                player.setChipRemain(iC);
-
-                            }
-                            item[posX][posY] = null;
-                        }
+                        canMove = true;
                     } else {
                         posY--;
                     }
@@ -264,18 +275,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     posX++;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 1;
-                        player.move(map[posX][posY].getX(), map[posX][posY].getY());
-                        if (item[posX][posY] == null) {
-                        } else {
-                            if (item[posX][posY].canBeObtained()) {
-                                player.obtainedInventoryItem(item[posX][posY]);
-                            } else {
-                                iC--;
-                                player.setChipRemain(iC);
-
-                            }
-                            item[posX][posY] = null;
-                        }
+                        canMove = true;
                     } else {
                         posX--;
                     }
@@ -286,34 +286,48 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     // isFinish = true;
                 }
                 if (map[posX][posY].killAllow()) {
-                    if (map[posX][posY].getClass().equals(new FireFloor(0, 0).getClass())) {
+                    if (map[posX][posY].getClass().equals(FireFloor.class)) {
                         if (player.immuneFire()) {
 
                         } else {
                             idxImgChip = 0;
                             alive = false;
                         }
-                    } else if (map[posX][posY].getClass().equals(new WaterFloor(0, 0).getClass())) {
+                    } else if (map[posX][posY].getClass().equals(WaterFloor.class)) {
                         if (player.immuneWater()) {
 
                         } else {
                             alive = false;
                         }
                     }
-                    if (alive == false) {
-                        timer.stop();
+                }
+                if (canMove) {
+                    player.move(map[posX][posY].getX(), map[posX][posY].getY());
+                    if (item[posX][posY] == null) {
+                    } else {
+                        if (item[posX][posY].canBeObtained()) {
+                            player.obtainedInventoryItem(item[posX][posY]);
+                        } else {
+                            iC--;
+                            chipScore += 250;
+                            player.setChipRemain(iC);
+                        }
+                        item[posX][posY] = null;
                     }
+                    canMove = false;
                 }
                 if (map[posX][posY].isFinish()) {
                     isFinish = true;
                 }
             }
         } else {
+            totalScore = 0;
+            timeBonusScore = 5000;
+            chipScore = 0;
             if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                 resetStatus();
             }
         }
-        repaint();
     }
     
     /**
@@ -360,23 +374,71 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                 j++;
             }
         }
-        if(i%4==0)
-        {
-            ff.setImg(i%4);
+        if (i % 8 == 0) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 1) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 2) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 3) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 4) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 5) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 6) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
+        } else if (i % 8 == 7) {
+            int j = 0;
+            while (j < arrOfWF.size()) {
+                arrOfWF.get(j).setImg(i % 8);
+                j++;
+            }
         }
-        else if(i%4==1)
-        {
-            ff.setImg(i%4);
-        }
-        else if(i%4==2)
-        {
-            ff.setImg(i%4);
-        }
-        else if(i%4==3)
-        {
-            ff.setImg(i%4);
+        // animasi finishFloor
+        if (i % 6 == 0) {
+            ff.setImg(i % 6);
+        } else if (i % 6 == 1) {
+            ff.setImg(i % 6);
+        } else if (i % 6 == 2) {
+            ff.setImg(i % 6);
+        } else if (i % 6 == 3) {
+            ff.setImg(i % 6);
+        } else if (i % 6 == 4) {
+            ff.setImg(i % 6);
+        } else if (i % 6 == 5) {
+            ff.setImg(i % 6);
         }
         i++;
+        timeBonusScore--;
         repaint();
     }
 
@@ -394,8 +456,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-
+    public void keyReleased(KeyEvent ke) {
     }
 
 }

@@ -30,6 +30,7 @@ public class World {
     private int posChipX;
     private int posChipY;
     private FinishFloor ff;
+    private ArrayList<WaterFloor> arrOfWF = new ArrayList();
     private ArrayList<FireFloor> arrOfFF = new ArrayList();
 
     public World(int level, Chip player) {
@@ -40,8 +41,8 @@ public class World {
         switch (level) {
             //LEVEL 1
             case 1:
-                map = new Obstacle[10][12];
-                item = new Item[10][12];
+                map = new Obstacle[10][10];
+                item = new Item[10][10];
                 posChipX = 1;
                 posChipY = 1;
                 //BARIS 1
@@ -460,6 +461,7 @@ public class World {
                 map[3][11] = new PlainFloor(x, y);
                 x += map[3][11].getImg().getWidth(null);
                 map[3][12] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[3][12]);
                 x += map[3][12].getImg().getWidth(null);
                 map[3][13] = new PlainFloor(x, y);
                 x += map[3][13].getImg().getWidth(null);
@@ -492,8 +494,10 @@ public class World {
                 map[4][10] = new PlainFloor(x, y);
                 x += map[4][10].getImg().getWidth(null);
                 map[4][11] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[4][11]);
                 x += map[4][11].getImg().getWidth(null);
                 map[4][12] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[4][12]);
                 x += map[4][12].getImg().getWidth(null);
                 map[4][13] = new PlainFloor(x, y);
                 x += map[4][13].getImg().getWidth(null);
@@ -506,14 +510,18 @@ public class World {
                 map[5][0] = new NormalWall(x, y);
                 x += map[5][0].getImg().getWidth(null);
                 map[5][1] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][1]);
                 x += map[5][1].getImg().getWidth(null);
                 map[5][2] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][2]);
                 x += map[5][2].getImg().getWidth(null);
                 map[5][3] = new PlainFloor(x, y);
                 x += map[5][3].getImg().getWidth(null);
                 map[5][4] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][4]);
                 x += map[5][4].getImg().getWidth(null);
                 map[5][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][5]);
                 x += map[5][5].getImg().getWidth(null);
                 map[5][6] = new PlainFloor(x, y);
                 x += map[5][6].getImg().getWidth(null);
@@ -524,10 +532,13 @@ public class World {
                 map[5][9] = new PlainFloor(x, y);
                 x += map[5][9].getImg().getWidth(null);
                 map[5][10] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][10]);
                 x += map[5][10].getImg().getWidth(null);
                 map[5][11] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][11]);
                 x += map[5][11].getImg().getWidth(null);
                 map[5][12] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][12]);
                 x += map[5][12].getImg().getWidth(null);
                 map[5][13] = new PlainFloor(x, y);
                 x += map[5][13].getImg().getWidth(null);
@@ -540,16 +551,20 @@ public class World {
                 map[6][0] = new NormalWall(x, y);
                 x += map[6][0].getImg().getWidth(null);
                 map[6][1] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][1]);
                 x += map[6][1].getImg().getWidth(null);
                 map[6][2] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][2]);
                 x += map[6][2].getImg().getWidth(null);
                 map[6][3] = new PlainFloor(x, y);
                 item[6][3] = new IntergratedCircuit(x, y);
                 counterIC++;
                 x += map[6][3].getImg().getWidth(null);
                 map[6][4] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][4]);
                 x += map[6][4].getImg().getWidth(null);
                 map[6][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][5]);
                 x += map[6][5].getImg().getWidth(null);
                 map[6][6] = new PlainFloor(x, y);
                 x += map[6][6].getImg().getWidth(null);
@@ -558,12 +573,16 @@ public class World {
                 map[6][8] = new PlainFloor(x, y);
                 x += map[6][8].getImg().getWidth(null);
                 map[6][9] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][9]);
                 x += map[6][9].getImg().getWidth(null);
                 map[6][10] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][10]);
                 x += map[6][10].getImg().getWidth(null);
                 map[6][11] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][11]);
                 x += map[6][11].getImg().getWidth(null);
                 map[6][12] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[6][12]);
                 x += map[6][12].getImg().getWidth(null);
                 map[6][13] = new PlainFloor(x, y);
                 x += map[6][13].getImg().getWidth(null);
@@ -576,22 +595,30 @@ public class World {
                 map[7][0] = new NormalWall(x, y);
                 x += map[7][0].getImg().getWidth(null);
                 map[7][1] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][1]);
                 x += map[7][1].getImg().getWidth(null);
                 map[7][2] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][2]);
                 x += map[7][2].getImg().getWidth(null);
                 map[7][3] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][3]);
                 x += map[7][3].getImg().getWidth(null);
                 map[7][4] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][4]);
                 x += map[7][4].getImg().getWidth(null);
                 map[7][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][5]);
                 x += map[7][5].getImg().getWidth(null);
                 map[7][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][6]);
                 x += map[7][6].getImg().getWidth(null);
                 map[7][7] = new PlainFloor(x, y);
                 x += map[7][7].getImg().getWidth(null);
                 map[7][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][8]);
                 x += map[7][8].getImg().getWidth(null);
                 map[7][9] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[7][9]);
                 x += map[7][9].getImg().getWidth(null);
                 map[7][10] = new PlainFloor(x, y);
                 item[7][10] = new IntergratedCircuit(x, y);
@@ -684,26 +711,36 @@ public class World {
                 counterIC++;
                 x += map[10][1].getImg().getWidth(null);
                 map[10][2] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][2]);
                 x += map[10][2].getImg().getWidth(null);
                 map[10][3] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][3]);
                 x += map[10][3].getImg().getWidth(null);
                 map[10][4] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][4]);
                 x += map[10][4].getImg().getWidth(null);
                 map[10][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][5]);
                 x += map[10][5].getImg().getWidth(null);
                 map[10][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][6]);
                 x += map[10][6].getImg().getWidth(null);
                 map[10][7] = new Barrier(x, y, player);
                 x += map[10][7].getImg().getWidth(null);
                 map[10][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][8]);
                 x += map[10][8].getImg().getWidth(null);
                 map[10][9] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][9]);
                 x += map[10][9].getImg().getWidth(null);
                 map[10][10] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][10]);
                 x += map[10][10].getImg().getWidth(null);
                 map[10][11] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][11]);
                 x += map[10][11].getImg().getWidth(null);
                 map[10][12] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][12]);
                 x += map[10][12].getImg().getWidth(null);
                 map[10][13] = new PlainFloor(x, y);
                 item[10][13] = new IntergratedCircuit(x, y);
@@ -726,15 +763,19 @@ public class World {
                 map[11][4] = new NormalWall(x, y);
                 x += map[11][4].getImg().getWidth(null);
                 map[11][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[11][5]);
                 x += map[11][5].getImg().getWidth(null);
                 map[11][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[11][6]);
                 x += map[11][6].getImg().getWidth(null);
                 map[11][7] = new FinishFloor(x, y);
                 ff=(FinishFloor)map[11][7];
                 x += map[11][7].getImg().getWidth(null);
                 map[11][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[11][8]);
                 x += map[11][8].getImg().getWidth(null);
                 map[11][9] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[11][9]);
                 x += map[11][9].getImg().getWidth(null);
                 map[11][10] = new NormalWall(x, y);
                 x += map[11][10].getImg().getWidth(null);
@@ -864,6 +905,7 @@ public class World {
                 map[2][7] = new NormalWall(x, y);
                 x += map[2][7].getImg().getWidth(null);
                 map[2][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[2][8]);
                 x += map[2][8].getImg().getWidth(null);
                 map[2][9] = new NormalWall(x, y);
                 x += map[2][9].getImg().getWidth(null);
@@ -909,10 +951,13 @@ public class World {
                 counterIC++;
                 x += map[3][5].getImg().getWidth(null);
                 map[3][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[3][6]);
                 x += map[3][6].getImg().getWidth(null);
                 map[3][7] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[3][7]);
                 x += map[3][7].getImg().getWidth(null);
                 map[3][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[3][8]);
                 x += map[3][8].getImg().getWidth(null);
                 map[3][9] = new NormalWall(x, y);
                 x += map[3][9].getImg().getWidth(null);
@@ -956,10 +1001,13 @@ public class World {
                 map[4][4] = new NormalWall(x, y);
                 x += map[4][4].getImg().getWidth(null);
                 map[4][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[4][5]);
                 x += map[4][5].getImg().getWidth(null);
                 map[4][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[4][6]);
                 x += map[4][6].getImg().getWidth(null);
                 map[4][7] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[4][7]);
                 x += map[4][7].getImg().getWidth(null);
                 map[4][8] = new PlainFloor(x, y);
                 x += map[4][8].getImg().getWidth(null);
@@ -1007,6 +1055,7 @@ public class World {
                 map[5][5] = new PlainFloor(x, y);
                 x += map[5][5].getImg().getWidth(null);
                 map[5][6] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[5][6]);
                 x += map[5][6].getImg().getWidth(null);
                 map[5][7] = new PlainFloor(x, y);
                 item[5][7] = new IntergratedCircuit(x, y);
@@ -1187,6 +1236,7 @@ public class World {
                 map[9][4] = new PlainFloor(x, y);
                 x += map[9][4].getImg().getWidth(null);
                 map[9][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[9][5]);
                 x += map[9][5].getImg().getWidth(null);
                 map[9][6] = new NormalWall(x, y);
                 x += map[9][6].getImg().getWidth(null);
@@ -1195,8 +1245,10 @@ public class World {
                 counterIC++;
                 x += map[9][7].getImg().getWidth(null);
                 map[9][8] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[9][8]);
                 x += map[9][8].getImg().getWidth(null);
                 map[9][9] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[9][9]);
                 x += map[9][9].getImg().getWidth(null);
                 map[9][10] = new PlainFloor(x, y);
                 x += map[9][10].getImg().getWidth(null);
@@ -1207,8 +1259,10 @@ public class World {
                 counterIC++;
                 x += map[9][12].getImg().getWidth(null);
                 map[9][13] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[9][13]);
                 x += map[9][13].getImg().getWidth(null);
                 map[9][14] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[9][14]);
                 x += map[9][14].getImg().getWidth(null);
                 map[9][15] = new PlainFloor(x,y);
                 x += map[9][15].getImg().getWidth(null);
@@ -1238,8 +1292,10 @@ public class World {
                 arrOfFF.add((FireFloor)map[10][3]);
                 x += map[10][3].getImg().getWidth(null);
                 map[10][4] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][4]);
                 x += map[10][4].getImg().getWidth(null);
                 map[10][5] = new WaterFloor(x, y);
+                arrOfWF.add((WaterFloor)map[10][5]);
                 x += map[10][5].getImg().getWidth(null);
                 map[10][6] = new NormalWall(x, y);
                 x += map[10][6].getImg().getWidth(null);
@@ -1254,12 +1310,16 @@ public class World {
                 map[10][11] = new NormalWall(x, y);
                 x += map[10][11].getImg().getWidth(null);
                 map[10][12] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[10][12]);
                 x += map[10][12].getImg().getWidth(null);
                 map[10][13] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[10][13]);
                 x += map[10][13].getImg().getWidth(null);
                 map[10][14] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[10][14]);
                 x += map[10][14].getImg().getWidth(null);
                 map[10][15] = new WaterFloor(x,y);
+                arrOfWF.add((WaterFloor)map[10][15]);
                 x += map[10][15].getImg().getWidth(null);
                 map[10][16] = new PlainFloor(x,y);
                 x += map[10][16].getImg().getWidth(null);
@@ -1347,5 +1407,10 @@ public class World {
     public FinishFloor getFinishFloor()
     {
         return ff;
+    }
+    
+    public ArrayList<WaterFloor> getArrOfWF()
+    {
+        return arrOfWF;
     }
 }

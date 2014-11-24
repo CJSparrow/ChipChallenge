@@ -75,7 +75,7 @@ public class Chip {
                 ex.printStackTrace();
             }
         }
-        inventory = new Item[8];
+        inventory = new Item[12];
     }
 
     public void setVisible(boolean visible) {
@@ -159,7 +159,7 @@ public class Chip {
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i] == null) {
 
-            } else if (inventory[i].getClass().equals(new FireShoes(0, 0).getClass())) {
+            } else if (inventory[i].getClass().equals(FireShoes.class)) {
                 return true;
             }
         }
@@ -170,7 +170,7 @@ public class Chip {
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i] == null) {
 
-            } else if (inventory[i].getClass().equals(new WaterShoes(0, 0).getClass())) {
+            } else if (inventory[i].getClass().equals(WaterShoes.class)) {
                 return true;
             }
         }

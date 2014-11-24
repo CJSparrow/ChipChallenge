@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
  * @author Jonathan Surya Laksa
  */
 public class WaterFloor extends Floor {
-
+    private Image img2,img3,img4,img5,img6,img7,img8;
     public WaterFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgWaterFloorURL = getClass().getClassLoader().getResource("images/waterFloor.png");
@@ -29,6 +29,76 @@ public class WaterFloor extends Floor {
                 ex.printStackTrace();
             }
         }
+        URL imgWaterFloor2URL = getClass().getClassLoader().getResource("images/waterFloor2.png");
+        if (imgWaterFloor2URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor2.png");
+        } else {
+            try {
+                img2 = ImageIO.read(imgWaterFloor2URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor3URL = getClass().getClassLoader().getResource("images/waterFloor3.png");
+        if (imgWaterFloor3URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor3.png");
+        } else {
+            try {
+                img3 = ImageIO.read(imgWaterFloor3URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor4URL = getClass().getClassLoader().getResource("images/waterFloor4.png");
+        if (imgWaterFloor4URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor4.png");
+        } else {
+            try {
+                img4 = ImageIO.read(imgWaterFloor4URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor5URL = getClass().getClassLoader().getResource("images/waterFloor5.png");
+        if (imgWaterFloor5URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor5.png");
+        } else {
+            try {
+                img5 = ImageIO.read(imgWaterFloor5URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor6URL = getClass().getClassLoader().getResource("images/waterFloor6.png");
+        if (imgWaterFloor6URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor6.png");
+        } else {
+            try {
+                img6 = ImageIO.read(imgWaterFloor6URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor7URL = getClass().getClassLoader().getResource("images/waterFloor7.png");
+        if (imgWaterFloor7URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor7.png");
+        } else {
+            try {
+                img7 = ImageIO.read(imgWaterFloor7URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        URL imgWaterFloor8URL = getClass().getClassLoader().getResource("images/waterFloor8.png");
+        if (imgWaterFloor8URL == null) {
+            System.err.println("Couldn't find file: " + "images/waterFloor8.png");
+        } else {
+            try {
+                img8 = ImageIO.read(imgWaterFloor8URL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 
@@ -37,5 +107,41 @@ public class WaterFloor extends Floor {
     @Override
     public boolean killAllow() {
         return true;
+    }
+    
+    public void setImg(int idx)
+    {
+        if(idx==0)
+        {
+            img=img;
+        }
+        else if(idx==1)
+        {
+            img=img2;
+        }
+        else if(idx==2)
+        {
+            img=img3;
+        }
+        else if(idx==3)
+        {
+            img=img4;
+        }
+        else if(idx==4)
+        {
+            img=img5;
+        }
+        else if(idx==5)
+        {
+            img=img6;
+        }
+        else if(idx==6)
+        {
+            img=img7;
+        }
+        else if(idx==7)
+        {
+            img=img8;
+        }
     }
 }
