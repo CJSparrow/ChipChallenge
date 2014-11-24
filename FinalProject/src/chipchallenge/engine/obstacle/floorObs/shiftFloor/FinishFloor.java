@@ -12,11 +12,19 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author
+ * Class ini merepresentasikan finish floor, dimana pada saat chip menginjak floor ini maka stage akan berakhir
+ * @author TampanCrew
  */
 public class FinishFloor extends Floor{
+    /**
+     * atribut image untuk finish floor
+     */
     private Image img2, img3, img4, img5, img6;
+    /**
+     * constructor dr class finish floor
+     * @param locationX : posisi x dari finish floor
+     * @param locationY : posisi y dari finish floor
+     */
     public FinishFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgFinishFloorURL = getClass().getClassLoader().getResource("images/finishFloor.png");
@@ -81,13 +89,21 @@ public class FinishFloor extends Floor{
         }
     }
 
-    
+    /**
+     * menandakan apakah sudah berada di finish atau belum
+     * @return true jika sudah finish
+     * false jika belum finish
+     */
     @Override
     public boolean isFinish()
     {
         return true;
     }
     
+    /**
+     * untuk merubah image finish floor nya, untuk di animasikan
+     * @param idx : pilihan image nya
+     */
     public void setImg(int idx)
     {
         if(idx==0)

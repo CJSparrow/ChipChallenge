@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Jonathan Surya Laksa
+ * @author TampanCrew
  */
 public class World {
 

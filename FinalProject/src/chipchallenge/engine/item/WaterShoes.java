@@ -11,11 +11,16 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author 
+ * class ini merepresentasikan water shoes dimana pada saat chip mengambil item ini akan menjadi tahan air
+ * (mampu berjalan di atas air)
+ * @author TampanCrew
  */
 public class WaterShoes extends Item{
-
+    /**
+     * constructor untuk class water shoes
+     * @param locationX : posisi x untuk water shoes
+     * @param locationY : posisi y untuk water shoes
+     */
     public WaterShoes(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgChipURL = getClass().getClassLoader().getResource("images/waterShoes.png");
@@ -31,7 +36,11 @@ public class WaterShoes extends Item{
         this.setVisible(true);
     }
 
-    
+    /**
+     * method yang menandakan apakah item ini bisa diambil atau tidak
+     * @return true : jika dapat diambil
+     * false : jika tidak dapat diambil
+     */
     @Override
     public boolean canBeObtained() {
         return true;

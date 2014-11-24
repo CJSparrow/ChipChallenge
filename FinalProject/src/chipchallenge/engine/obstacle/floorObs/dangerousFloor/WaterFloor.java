@@ -12,11 +12,19 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class ini merepresentasikan water floor, dimana saat chip menginjak floor ini maka akan mati
+ * @author TampanCrew
  */
 public class WaterFloor extends Floor {
+    /**
+     * atribut image untuk water floor nya
+     */
     private Image img2,img3,img4,img5,img6,img7,img8;
+    /**
+     * constructor class water floor 
+     * @param locationX : posisi x water floor
+     * @param locationY : posisi y water floor
+     */
     public WaterFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgWaterFloorURL = getClass().getClassLoader().getResource("images/waterFloor.png");
@@ -101,14 +109,20 @@ public class WaterFloor extends Floor {
         }
     }
 
-
-
-
+    /**
+     * untuk menandakan apakah floor ini mematikan / tidak
+     * @return true : jika mematikan
+     * false : jika aman
+     */
     @Override
     public boolean killAllow() {
         return true;
     }
     
+    /**
+     * untuk merubah gambar water floornya, untuk dianimasikan
+     * @param idx : pilihan image nya
+     */
     public void setImg(int idx)
     {
         if(idx==0)

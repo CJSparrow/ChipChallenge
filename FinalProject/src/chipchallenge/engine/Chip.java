@@ -13,15 +13,44 @@ import javax.imageio.ImageIO;
  * @author TampanCrew
  */
 public class Chip {
-
+    /**
+     * atribut array untuk menampung item - item yang didapatkan oleh chip selama di stage tersebut
+     */
     private Item[] inventory;
+    /**
+     * atribut untuk menandakan berapa sisa chip dalam stage tersebut
+     */
     private int chipRemain;
+    /**
+     * atribut untuk menandakan sesuatu apakah kelihatan atau tidak
+     */
     private boolean isVisible;
+    /**
+     * atribut untuk memberi tahu posisi gambar/image nya
+     */
     private String imgLocation;
+    /**
+     * atribut untuk posisi x
+     */
     private int x;
+    /**
+     * atribut untuk posisi y
+     */
     private int y;
+    /**
+     * imgDown  : untuk chip pada saat dia menghadap ke bawah
+     * imgUp    : untuk chip pada saat dia menghadap ke atas
+     * imgLeft  : untuk chip pada saat dia menghadap ke kiri
+     * imgRight : untuk chip pada saat dia menghadap ke kanan
+     * imgBurned: untuk chip pada saat dia menginjak api dan terbakar
+     */
     private Image imgDown, imgUp, imgLeft, imgRight, imgBurned;
-
+    
+    /**
+     * constructor untuk class chip
+     * @param locationX : titik x untuk chip
+     * @param locationY : titik y untuk chip
+     */
     public Chip(int locationX, int locationY) {
         this.x = locationX;
         this.y = locationY;
@@ -77,36 +106,70 @@ public class Chip {
         }
         inventory = new Item[12];
     }
-
+    
+    /**
+     * method untuk membuat chip menjadi terlihat atau tidak
+     * @param visible : true jika terlihat, false jika tidak terlihat
+     */
     public void setVisible(boolean visible) {
         this.isVisible = visible;
     }
-
+    
+    /**
+     * method untuk merubah lokasi image dengan yang baru
+     * @param lokasiImg : lokasi image yang baru
+     */
     public void setImageFileName(String lokasiImg) {
         this.imgLocation = lokasiImg;
     }
-
+    
+    /**
+     * mendapatkan posisi x chip nya
+     * @return posisi x chip
+     */
     public int getX() {
         return x;
     }
-
+    
+    /**
+     * mendapatkan posisi y chip nya
+     * @return posisi y chip
+     */
     public int getY() {
         return y;
     }
-
+    
+    /**
+     * method untuk menjalankan chip nya ke posisi tertentu
+     * @param x : posisi x tujuannya
+     * @param y : posisi y tujuannya
+     */
     public void move(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
+    
+    /**
+     * method untuk mengecek apakah chip terlihat atau tidak
+     * @return true : jika terlihat
+     * false : jika tidak terlihat
+     */
     public boolean getVisible() {
         return isVisible;
     }
-
+    
+    /**
+     * method untuk mendapatkan isi dari inventory chipnya
+     * @return array of item yang merupakan inventory dari chip
+     */
     public Item[] getInventory() {
         return inventory;
     }
-
+    
+    /**
+     * method untuk mendapatkan item baru dan memasukkan nya ke inventory
+     * @param newOne : item baru yang didapatkan
+     */
     public void obtainedInventoryItem(Item newOne) {
         int i = 0;
         while (i < inventory.length) {
@@ -118,11 +181,20 @@ public class Chip {
             }
         }
     }
-
+    
+    /**
+     * method untuk mendapatkan sisa chip dalam stage
+     * @return sisa chip
+     */
     public int getChipRemain() {
         return chipRemain;
     }
-
+    
+    /**
+     * method untuk mendapatkan objek image pada index tertentu
+     * @param idx : index yang akan diambil image nya
+     * @return image pada idx
+     */
     public Image getImg(int idx) {
         Image imgReturned = null;
         if (idx == 1) {
@@ -138,15 +210,29 @@ public class Chip {
         }
         return imgReturned;
     }
-
+    
+    /**
+     * method untuk mengatur sisa chip yang ada dalam stage
+     * @param chip : sisa chip yang di set
+     */
     public void setChipRemain(int chip) {
         chipRemain = chip;
     }
-
+    
+    /**
+     * untuk menentukan apakah merupakan chip atau bukan
+     * @return true : jika merupakan chip
+     * false : jika bukan merupakan chip
+     */
     public boolean isChip() {
         return true;
     }
-
+    
+    /**
+     * method untuk menandakan apakah chip tahan api atau tidak(bisa berjalan di atas fire floor)
+     * @return true : jika tahan api
+     * false : jika tidak
+     */
     public boolean immuneFire() {
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i] == null) {
@@ -157,7 +243,12 @@ public class Chip {
         }
         return false;
     }
-
+    
+    /**
+     * method untuk menandakan apakah chip bisa berjalan di atas water floor atau tidak
+     * @return true : jika tahan air
+     * false : jika tidak
+     */
     public boolean immuneWater() {
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i] == null) {
@@ -168,7 +259,10 @@ public class Chip {
         }
         return false;
     }
-
+    
+    /**
+     * method untuk mereset isi dari inventory chip nya
+     */
     public void clearInventory() {
         int i = 0;
         while (inventory[i] != null) {

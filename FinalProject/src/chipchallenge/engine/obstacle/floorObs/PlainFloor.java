@@ -11,11 +11,15 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class yang merepresentasikan floor biasa
+ * @author TampanCrew
  */
 public class PlainFloor extends Floor{
-
+    /**
+     * constructor dari class plain floor
+     * @param locationX : posisi x plain floor nya
+     * @param locationY : posisi y plain floor nya
+     */
     public PlainFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgFloorURL = getClass().getClassLoader().getResource("images/plainFloor.png");

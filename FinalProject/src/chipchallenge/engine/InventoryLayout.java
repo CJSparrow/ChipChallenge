@@ -11,11 +11,18 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class ini untuk menampilkan panel item
+ * @author TampanCrew
  */
 public class InventoryLayout {
+    /**
+     * atribut objek image
+     */
     private Image img;
+    
+    /**
+     * constructor dari class inventory layout
+     */
     public InventoryLayout()
     {
         
@@ -31,6 +38,10 @@ public class InventoryLayout {
         }
     }
     
+    /**
+     * method untuk menampilkan atau mengembalikan objek image dari panel inventory
+     * @return objek image untuk panel inventory
+     */
     public Image getImg()
     {
         return img;

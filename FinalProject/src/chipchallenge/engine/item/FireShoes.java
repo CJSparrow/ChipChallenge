@@ -10,11 +10,15 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class yang merepresentasikan sepatu api, chip yang memakai ini akan mampu untuk berjalan di atas api
+ * @author TampanCrew
  */
 public class FireShoes extends Item{
-
+    /**
+     * constructor dari fire shoes
+     * @param locationX : posisi fire shoes di titik x
+     * @param locationY : posisi fire shoes di titik y
+     */
     public FireShoes(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgChipURL = getClass().getClassLoader().getResource("images/fireShoes.png");
@@ -29,7 +33,12 @@ public class FireShoes extends Item{
         }
         this.setVisible(true);
     }
-
+    
+    /**
+     * method untuk menandakan apakah item ini bisa diambil atau tidak oleh chip
+     * @return true : jika bisa diambil
+     * false : jika tidak bisa diambil
+     */
     @Override
     public boolean canBeObtained() {
         return true;

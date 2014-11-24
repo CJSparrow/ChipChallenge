@@ -11,11 +11,16 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
+ * class ini merepresentasikan normal wall yang hanya mempunyai fungsi untuk menghalangi chip saja
  * @author Jonathan Surya Laksa
  */
 public class NormalWall extends Wall{
-
+    
+    /**
+     * constructor dari class Normal wall
+     * @param locationX : posisi x normal wall
+     * @param locationY : posisi y normal wall
+     */
     public NormalWall(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgWallURL = getClass().getClassLoader().getResource("images/wall.png");
@@ -30,22 +35,38 @@ public class NormalWall extends Wall{
         }
     }
 
-
+    /**
+     * menandakan apakah wall nya ada / tidak
+     * @return true jika ada wall
+     * false jika tidak ada wall
+     */
      @Override
     public boolean isVisible() {
         return true;
     }
-
+    /**
+     * menandakan apakah wall bisa dilewati / tidak
+     * @return true jika bisa dilewati
+     * false jika tidak bisa dilewati
+     */
     @Override
     public boolean passAllow() {
         return false;
     }
-
+    /**
+     * menandakan apakah wall mematikan / tidak
+     * @return true jika mematikan
+     * false jika aman
+     */
     @Override
     public boolean killAllow() {
         return false;
     }
-
+    /**
+     * menandakan apakah wall bisa didorong / tidak
+     * @return true jika bisa didorong
+     * false jika tidak bisa didorong
+     */
     @Override
     public boolean pushAllow() {
         return false;
