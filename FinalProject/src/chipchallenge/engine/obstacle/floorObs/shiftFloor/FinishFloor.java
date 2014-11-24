@@ -106,13 +106,13 @@ public class FinishFloor extends Floor{
         {
             img=img4;
         }
-//        else if(idx==4)
-//        {
-//            img=img5;
-//        }
-//        else if(idx==5)
-//        {
-//            img=img6;
-//        }
+        else if(idx==4)
+        {
+            img=img5;
+        }
+        else if(idx==5)
+        {
+            img=img6;
+        }
     }
 }

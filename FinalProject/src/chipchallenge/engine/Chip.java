@@ -75,7 +75,7 @@ public class Chip {
                 ex.printStackTrace();
             }
         }
-        inventory = new Item[8];
+        inventory = new Item[12];
     }
 
     public void setVisible(boolean visible) {
@@ -127,21 +127,13 @@ public class Chip {
         Image imgReturned = null;
         if (idx == 1) {
             imgReturned = imgDown;
-        }
-        else if(idx==2)
-        {
+        } else if (idx == 2) {
             imgReturned = imgUp;
-        }
-        else if(idx==3)
-        {
+        } else if (idx == 3) {
             imgReturned = imgLeft;
-        }
-        else if(idx==4)
-        {
+        } else if (idx == 4) {
             imgReturned = imgRight;
-        }
-        else if(idx==0)
-        {
+        } else if (idx == 0) {
             imgReturned = imgBurned;
         }
         return imgReturned;
@@ -175,5 +167,12 @@ public class Chip {
             }
         }
         return false;
+    }
+
+    public void clearInventory() {
+        int i = 0;
+        while (inventory[i] != null) {
+            inventory[i] = null;
+        }
     }
 }
