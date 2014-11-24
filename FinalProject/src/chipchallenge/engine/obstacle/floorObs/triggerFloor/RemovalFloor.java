@@ -9,29 +9,26 @@ import chipchallenge.engine.Chip;
 import chipchallenge.engine.item.Item;
 import chipchallenge.engine.obstacle.floorObs.Floor;
 import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  *
  * @author Jonathan Surya Laksa
  */
-public class RemovalFloor extends Floor{
+public class RemovalFloor extends Floor {
 
-    private Chip identifyChip;
-
-    public RemovalFloor(int locationX, int locationY, Chip newChip) {
+    public RemovalFloor(int locationX, int locationY) {
         super(locationX, locationY);
-        identifyChip=newChip;
-    }
-
-   
-    public void clearInventory(Item typeItem)
-    {
-        Item[] inv = identifyChip.getInventory();
-        for(int i = 0 ; i<inv.length;i++)
-        {
-            if(inv[i].getClass()==typeItem.getClass())
-            {
-                inv[i]=null;
+        URL imgRemovalURL = getClass().getClassLoader().getResource("images/removalFloor.png");
+        if (imgRemovalURL == null) {
+            System.err.println("Couldn't find file: " + "images/removalFloor.png");
+        } else {
+            try {
+                img = ImageIO.read(imgRemovalURL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
     }

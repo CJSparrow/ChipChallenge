@@ -13,6 +13,7 @@ import chipchallenge.engine.obstacle.floorObs.PlainFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
 import chipchallenge.engine.obstacle.floorObs.shiftFloor.FinishFloor;
+import chipchallenge.engine.obstacle.floorObs.triggerFloor.RemovalFloor;
 import chipchallenge.engine.obstacle.staticObs.Barrier;
 import chipchallenge.engine.obstacle.staticObs.wall.NormalWall;
 import java.util.ArrayList;

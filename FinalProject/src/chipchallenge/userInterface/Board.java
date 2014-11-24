@@ -7,6 +7,7 @@ import chipchallenge.engine.obstacle.floorObs.*;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
 import chipchallenge.engine.obstacle.floorObs.shiftFloor.*;
+import chipchallenge.engine.obstacle.floorObs.triggerFloor.RemovalFloor;
 import chipchallenge.engine.obstacle.staticObs.*;
 import chipchallenge.engine.obstacle.staticObs.wall.*;
 import java.awt.event.*;
@@ -69,7 +70,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private int timeBonusScore = 5000;
 
-    private int chipScore = 0;
+    private int icScore = 0;
 
     /**
      * objek dari class world
@@ -84,7 +85,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private int i = 0;
 
-    private Font fonts;
+    private Font finishFont;
+    
+    private Font inventoryFont;
 
     private ArrayList<FireFloor> arrOfFF = new ArrayList();
 
@@ -121,7 +124,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         player.move(map[posX][posY].getX(), map[posX][posY].getY());
         timer = new Timer(60, this);
         timer.start();
-        fonts = new Font("Times New Roman", 100, 15);
+        finishFont = new Font("Times New Roman", 100, 15);
+        inventoryFont = new Font("Comic Sans MS",2,26);
         arrOfFF = world.getArrOfFF();
         arrOfWF = world.getArrOfWF();
         ff = world.getFinishFloor();
@@ -144,7 +148,6 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         posX = world.getPosChipX();
         posY = world.getPosChipY();
         player.move(map[posX][posY].getX(), map[posX][posY].getY());
-        totalScore = 0;
         idxImgChip = 1;
         arrOfFF = world.getArrOfFF();
         arrOfWF = world.getArrOfWF();
@@ -159,16 +162,12 @@ public class Board extends JPanel implements ActionListener, KeyListener {
      */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+            widthLayout = 96 + (map[0][map[0].length - 1].getX());
+            heightLayout = 48 * (map.length / 2-2);
         if (alive) {
             if (isFinish) {
                 timer.stop();
-                Graphics2D g2 = (Graphics2D) g;
-                g2.fillRect(50, 50, 500, 500);
-                g2.setColor(Color.yellow);
-                g2.setFont(fonts);
-                g2.drawString("FINISH!", 285, 275);
-                totalScore += timeBonusScore + chipScore;
-                g2.drawString("Your Score Now Is " + totalScore, 265, 300);
+                totalScore += timeBonusScore + icScore;
             } else {
             }
         }
@@ -176,7 +175,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         {
             timer.stop();
         }
-        if (isFinish == false) {
+//        if (isFinish == false) {
             // gambar map dan item
             for (int i = 0; i < map.length; i++) {
                 for (int j = 0; j < map[i].length; j++) {
@@ -198,8 +197,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                 }
             }
             // gambar layout inventory
-            widthLayout = 96 + (map[0][map[0].length - 1].getX());
-            heightLayout = 48 * (map.length / 2);
+            g.setFont(inventoryFont);
+            g.setColor(Color.yellow);
+            g.drawString("INVENTORY", (168 + (map[0][map[0].length - 1].getX())), (48 * ((map.length / 2)-3)));
             g.drawImage(layout.getImg(), widthLayout, heightLayout, null);
             int jkl = 0;
             while (jkl < player.getInventory().length) {
@@ -216,9 +216,13 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     break;
                 }
             }
+            g.drawString("Chip Remain : "+player.getChipRemain(), (144 + (map[0][map[0].length - 1].getX())), (48 * ((map.length / 2)+3)));
+            g.drawString("Time Bonus Score : "+timeBonusScore, (144 + (map[0][map[0].length - 1].getX())), (48 * ((map.length / 2)+4)));
+            g.drawString("Intergrated Circuit Score : "+icScore, (144 + (map[0][map[0].length - 1].getX())), (48 * ((map.length / 2)+5)));
+            g.drawString("Total Score : "+totalScore, (144 + (map[0][map[0].length - 1].getX())), (48 * ((map.length / 2)+6)));
             //gambar player
             g.drawImage(player.getImg(idxImgChip), player.getX(), player.getY(), null);
-        }
+//        }
     }
 
     /**
@@ -249,7 +253,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
                 }
                 //up
-                if (ke.getKeyCode() == 38) {
+                else if (ke.getKeyCode() == 38) {
                     posX--;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 2;
@@ -260,7 +264,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
                 }
                 //right
-                if (ke.getKeyCode() == 39) {
+                else if (ke.getKeyCode() == 39) {
                     posY++;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 4;
@@ -271,7 +275,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
                 }
                 //down
-                if (ke.getKeyCode() == 40) {
+                else if (ke.getKeyCode() == 40) {
                     posX++;
                     if (map[posX][posY].passAllow()) {
                         idxImgChip = 1;
@@ -281,7 +285,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                     }
 
                 }
-                if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+                else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
                     //  player.setChipRemain(0);
                     // isFinish = true;
                 }
@@ -303,13 +307,17 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                 }
                 if (canMove) {
                     player.move(map[posX][posY].getX(), map[posX][posY].getY());
+                    if(map[posX][posY].getClass().equals(RemovalFloor.class))
+                    {
+                        player.clearInventory();
+                    }
                     if (item[posX][posY] == null) {
                     } else {
                         if (item[posX][posY].canBeObtained()) {
                             player.obtainedInventoryItem(item[posX][posY]);
                         } else {
                             iC--;
-                            chipScore += 250;
+                            icScore += 250;
                             player.setChipRemain(iC);
                         }
                         item[posX][posY] = null;
@@ -323,7 +331,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         } else {
             totalScore = 0;
             timeBonusScore = 5000;
-            chipScore = 0;
+            icScore = 0;
             if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                 resetStatus();
             }
