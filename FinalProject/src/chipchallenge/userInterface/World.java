@@ -10,6 +10,7 @@ import chipchallenge.engine.item.*;
 import chipchallenge.engine.item.IntergratedCircuit;
 import chipchallenge.engine.obstacle.Obstacle;
 import chipchallenge.engine.obstacle.dynamicObs.Airplane;
+import chipchallenge.engine.obstacle.dynamicObs.DynamicObstacle;
 import chipchallenge.engine.obstacle.floorObs.PlainFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;

@@ -44,7 +44,7 @@ public class Chip {
      * imgRight : untuk chip pada saat dia menghadap ke kanan
      * imgBurned: untuk chip pada saat dia menginjak api dan terbakar
      */
-    private Image imgDown, imgUp, imgLeft, imgRight, imgBurned;
+    private Image imgDown, imgUp, imgLeft, imgRight, imgBurned, imgSinked;
     
     /**
      * constructor untuk class chip
@@ -54,6 +54,16 @@ public class Chip {
     public Chip(int locationX, int locationY) {
         this.x = locationX;
         this.y = locationY;
+        URL imgSinkedURL = getClass().getClassLoader().getResource("images/sink.png");
+        if (imgSinkedURL == null) {
+            System.err.println("Couldn't find file: " + "images/sink.png");
+        } else {
+            try {
+                imgSinked = ImageIO.read(imgSinkedURL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         URL imgChipDownURL = getClass().getClassLoader().getResource("images/chipDown.png");
         if (imgChipDownURL == null) {
             System.err.println("Couldn't find file: " + "images/chipDown.png");
@@ -207,6 +217,9 @@ public class Chip {
             imgReturned = imgRight;
         } else if (idx == 0) {
             imgReturned = imgBurned;
+        } else if (idx == 5)
+        {
+            imgReturned = imgSinked;
         }
         return imgReturned;
     }
@@ -264,9 +277,6 @@ public class Chip {
      * method untuk mereset isi dari inventory chip nya
      */
     public void clearInventory() {
-        int i = 0;
-        while (inventory[i] != null) {
-            inventory[i] = null;
-        }
+        inventory = new Item[8];
     }
 }

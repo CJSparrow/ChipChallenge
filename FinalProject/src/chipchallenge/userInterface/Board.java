@@ -3,6 +3,7 @@ package chipchallenge.userInterface;
 import chipchallenge.engine.*;
 import chipchallenge.engine.item.*;
 import chipchallenge.engine.obstacle.Obstacle;
+import chipchallenge.engine.obstacle.dynamicObs.DynamicObstacle;
 import chipchallenge.engine.obstacle.floorObs.*;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
@@ -90,7 +91,6 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private Timer timer;
 
     private int i = 0;
-    private int j = 0;
 
     private Font finishFont;
     
@@ -161,12 +161,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     }
 
     /**
-     * method untuk mereset permainan kembali ke awal (pada level yang sama)
+     * method untuk mereset status pemain dan map ke untuk level selanjutnya.
      */
     public void resetStatus() {
         alive = true;
         isFinish = false;
-        player = new Chip(0, 0);
         world = new World(level, player);
         map = world.getMap();
         item = world.getItem();
@@ -179,9 +178,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         arrOfFF = world.getArrOfFF();
         arrOfWF = world.getArrOfWF();
         ff = world.getFinishFloor();
+        player.clearInventory();
         timer.start();
     }
-
+    
     /**
      * untuk menggambar semua unsur boardnya dan juga menampilkan score
      * @param g : Graphics
@@ -326,6 +326,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
                         if (player.immuneWater()) {
 
                         } else {
+                            idxImgChip = 5;
                             alive = false;
                         }
                     }
