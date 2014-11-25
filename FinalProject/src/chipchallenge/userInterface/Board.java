@@ -90,6 +90,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private Timer timer;
 
     private int i = 0;
+    private int j = 0;
 
     private Font finishFont;
     

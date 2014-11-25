@@ -10,11 +10,11 @@ public abstract class Obstacle {
     /**
      * posisi x dari obstacle
      */
-    private int x;
+    protected int x;
     /**
      * posisi y dari obstacle
      */
-    private int y;
+    protected int y;
     /**
      * Objek image untuk menampilkan obstacle nya
      */

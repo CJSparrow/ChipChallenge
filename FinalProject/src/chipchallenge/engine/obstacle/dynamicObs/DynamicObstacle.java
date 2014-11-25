@@ -8,7 +8,7 @@ import chipchallenge.engine.obstacle.Obstacle;
  */
 public class DynamicObstacle extends Obstacle{
 
-    public DynamicObstacle(int locationX, int locationY, String lokasiImg) {
+    public DynamicObstacle(int locationX, int locationY) {
         super(locationX, locationY);
     }
 
@@ -34,6 +34,11 @@ public class DynamicObstacle extends Obstacle{
     @Override
     public boolean isVisible() {
         return true;
+    }
+    public void setPosition(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
     }
     
 }

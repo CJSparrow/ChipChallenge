@@ -7,6 +7,9 @@ package chipchallenge.engine.obstacle.dynamicObs;
 
 import chipchallenge.engine.obstacle.Obstacle;
 import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -16,6 +19,16 @@ public class Airplane extends Obstacle{
 
     public Airplane(int locationX, int locationY) {
         super(locationX, locationY);
+        URL imgAirplaneURL = getClass().getClassLoader().getResource("images/obs.png");
+        if (imgAirplaneURL == null) {
+            System.err.println("Couldn't find file: " + "images/obs.png");
+        } else {
+            try {
+                img = ImageIO.read(imgAirplaneURL);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
   
 
