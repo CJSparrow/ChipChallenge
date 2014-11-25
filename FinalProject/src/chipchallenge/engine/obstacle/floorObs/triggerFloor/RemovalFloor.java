@@ -14,11 +14,16 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ *  class ini merepresentasikan floor yang jika diinjak akan membuat sepatu kita (sepatu renang dan sepatu tahan api)
+ * @author TampanCrew
  */
 public class RemovalFloor extends Floor {
-
+    
+    /**
+     * constructor dari class removal floor
+     * @param locationX : posisi x floor
+     * @param locationY : posisi y floor
+     */
     public RemovalFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgRemovalURL = getClass().getClassLoader().getResource("images/removalFloor.png");

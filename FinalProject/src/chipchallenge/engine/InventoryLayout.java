@@ -11,7 +11,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- * class ini untuk menampilkan panel item
+ * class ini untuk menampilkan panel item yang berada di sebelah kanan board
  * @author TampanCrew
  */
 public class InventoryLayout {

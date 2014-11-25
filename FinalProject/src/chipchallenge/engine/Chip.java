@@ -9,7 +9,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
+ * merepresentasikan chip sebagai player dari game ini
  * @author TampanCrew
  */
 public class Chip {

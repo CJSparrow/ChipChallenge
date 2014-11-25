@@ -3,7 +3,6 @@ package chipchallenge.userInterface;
 import chipchallenge.engine.*;
 import chipchallenge.engine.item.*;
 import chipchallenge.engine.obstacle.Obstacle;
-import chipchallenge.engine.obstacle.dynamicObs.DynamicObstacle;
 import chipchallenge.engine.obstacle.floorObs.*;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
@@ -20,8 +19,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * class ini merepresentasikan papan permainan nya dari chip's challenge
- *
+ * class ini merepresentasikan papan permainan dari chip's challenge
  * @author TampanCrew
  */
 public class Board extends JPanel implements ActionListener, KeyListener {
@@ -488,7 +486,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         timeBonusScore--;
         repaint();
     }
-
+    
+    /**
+     * method untuk menjalankan game Chip's Challenge
+     * @param args 
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Chip's Challenge");
         frame.setContentPane(new Board());

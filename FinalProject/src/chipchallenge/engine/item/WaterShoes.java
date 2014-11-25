@@ -11,7 +11,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- * class ini merepresentasikan water shoes dimana pada saat chip mengambil item ini akan menjadi tahan air
+ * class ini merepresentasikan sepatu renangdimana pada saat chip mengambil item ini akan bisa berenang
  * (mampu berjalan di atas air)
  * @author TampanCrew
  */
@@ -45,5 +45,4 @@ public class WaterShoes extends Item{
     public boolean canBeObtained() {
         return true;
     }
-    
 }

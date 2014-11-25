@@ -9,8 +9,6 @@ import chipchallenge.engine.Chip;
 import chipchallenge.engine.item.*;
 import chipchallenge.engine.item.IntergratedCircuit;
 import chipchallenge.engine.obstacle.Obstacle;
-import chipchallenge.engine.obstacle.dynamicObs.Airplane;
-import chipchallenge.engine.obstacle.dynamicObs.DynamicObstacle;
 import chipchallenge.engine.obstacle.floorObs.PlainFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.FireFloor;
 import chipchallenge.engine.obstacle.floorObs.dangerousFloor.WaterFloor;
@@ -23,21 +21,52 @@ import chipchallenge.engine.obstacle.staticObs.wall.RandomWall;
 import java.util.ArrayList;
 
 /**
- *
+ * class ini merepresentasikan world sebagai engine untuk membuat level-level pada game ini
  * @author TampanCrew
  */
 public class World {
-
+    /**
+     * array of obstacle merepresentasikan obstacle-obstacle yang berada di stage tsb
+     */
     private Obstacle[][] map;
+    /**
+     * array of item merepresentasikan item-item yang berada di stage tsb
+     */
     private Item[][] item;
+    /**
+     * merepresentasikan chip nya sebagai player
+     */
     private Chip player;
+    /**
+     * untuk menandakan sudah berapa chip yang didapat/ masih tersisa di stage tsb
+     */
     private int counterIC;
+    /**
+     * posisi x chip nya
+     */
     private int posChipX;
+    /**
+     * posisi y chip nya
+     */
     private int posChipY;
+    /**
+     * atribut dari finish floor, saat chip menginjak ini maka stage tersebut selesai
+     */
     private FinishFloor ff;
+    /**
+     * arraylist dari water floor, merepresentasikan kumpulan water floor
+     */
     private ArrayList<WaterFloor> arrOfWF = new ArrayList();
+    /**
+     * arraylist dari fire floor, merepresentasikan kumpulan fire floor
+     */
     private ArrayList<FireFloor> arrOfFF = new ArrayList();
-
+    
+    /**
+     * constructor dari class world
+     * @param level : menandakan level yang saat ini sedang dimainkan
+     * @param player : untuk memasukkan chip sebagai player
+     */
     public World(int level, Chip player) {
         counterIC = 0;
         this.player = player;
@@ -2319,35 +2348,67 @@ public class World {
                 break;
         }
     }
-
+    
+    /**
+     * method untuk mendapatkan kumpulan obstacle dalam stage tsb
+     * @return array of obstacle(kumpulan obstacle)
+     */
     public Obstacle[][] getMap() {
         return map;
     }
-
+    
+    /**
+     * mendapatkan kumpulan item dalam stage tsb
+     * @return array of item(kumpulan item)
+     */
     public Item[][] getItem() {
         return item;
     }
-
+    
+    /**
+     * mendapatkan total jumlah IC dalam 1 stage
+     * @return total IC dalam 1 stage
+     */
     public int getSumOfIC() {
         return counterIC;
     }
-
+    
+    /**
+     * untuk mengetahui posisi x chip nya pada saat ini
+     * @return posisi x dari chipnya
+     */
     public int getPosChipX() {
         return posChipX;
     }
-
+    
+    /**
+     * untuk mengetahui posisi y chip nya pada saat ini
+     * @return posisi y dari chipnya
+     */
     public int getPosChipY() {
         return posChipY;
     }
-
+    
+    /**
+     * mendapatkan kumpulan firefloor dalam 1 stage
+     * @return kumpulan fire floor(arraylist) dalam 1 stage
+     */
     public ArrayList<FireFloor> getArrOfFF() {
         return arrOfFF;
     }
-
+    
+    /**
+     * mendapatkan objek finish floor dalam 1 stage
+     * @return objek finish floor
+     */
     public FinishFloor getFinishFloor() {
         return ff;
     }
-
+    
+    /**
+     * mendapatkan kumpulan water floor dalam 1 stage
+     * @return kumpulan water floor(arraylist) dalam 1 stage
+     */
     public ArrayList<WaterFloor> getArrOfWF() {
         return arrOfWF;
     }

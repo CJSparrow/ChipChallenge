@@ -10,7 +10,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- * class yang merepresentasikan sepatu api, chip yang memakai ini akan mampu untuk berjalan di atas api
+ * class yang merepresentasikan sepatu tahan api, chip yang memakai ini akan mampu untuk berjalan di atas api
  * @author TampanCrew
  */
 public class FireShoes extends Item{
