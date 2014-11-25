@@ -62,7 +62,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     /**
      * untuk menandakan sudah ada di level berapa
      */
-    private int level = 5;
+    private int level = 1;
     /**
      * total skor dari setiap level
      */
