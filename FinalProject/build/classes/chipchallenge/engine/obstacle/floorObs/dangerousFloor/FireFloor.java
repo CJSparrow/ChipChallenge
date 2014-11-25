@@ -12,11 +12,19 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class ini merepresentasikan fire floor, dimana saat chip menginjak floor ini maka akan mati
+ * @author TampanCrew
  */
 public class FireFloor extends Floor{
+    /**
+     * atribut image untuk fire floor nya
+     */
     private Image img1,img2,img3,img4,img5,img6;
+    /**
+     * constructor class fire floor 
+     * @param locationX : posisi x fire floor
+     * @param locationY : posisi y fire floor
+     */
     public FireFloor(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgFireFloor1URL = getClass().getClassLoader().getResource("images/fireFloor1.png");
@@ -81,13 +89,20 @@ public class FireFloor extends Floor{
         }
     }
 
-
-
+    /**
+     * untuk menandakan apakah floor ini mematikan / tidak
+     * @return true : jika mematikan
+     * false : jika aman
+     */
     @Override
     public boolean killAllow()
     {
         return true;
     }
+    /**
+     * untuk merubah gambar fire floornya, untuk dianimasikan
+     * @param idx : pilihan image nya
+     */
     public void setImg(int idx)
     {
         if(idx==0)

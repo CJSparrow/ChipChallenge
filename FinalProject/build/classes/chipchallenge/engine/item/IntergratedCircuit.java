@@ -10,11 +10,15 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Jonathan Surya Laksa
+ * class ini merepresentasikan IC yang ada di stage, jika semua IC telah diambil oleh chip maka chip dapat membuka barrier
+ * @author TampanCrew
  */
 public class IntergratedCircuit extends Item{
-
+    /**
+     * constructor dari IntergratedCircuit
+     * @param locationX : posisi x dimana IC berada
+     * @param locationY : posisi y dimana IC berada
+     */
     public IntergratedCircuit(int locationX, int locationY) {
         super(locationX, locationY);
         URL imgICURL = getClass().getClassLoader().getResource("images/IC.png");
@@ -30,7 +34,12 @@ public class IntergratedCircuit extends Item{
         this.setVisible(true);
         
     }
-
+    
+    /**
+     * method yang menandakan apakah item ini bisa diambil atau tidak
+     * @return true : jika dapat diambil
+     * false : jika tidak dapat diambil
+     */
     @Override
     public boolean canBeObtained() {
         return false;
