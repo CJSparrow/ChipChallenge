@@ -2,24 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Axel/Documents/GitHub/ChipChallenge/FinalProject/src/chipchallenge/userInterface/Board.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/engine/obstacle/staticObs/wall/RandomObstacle.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/engine/Chip.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/userInterface/Board.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/engine/obstacle/Obstacle.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/engine/obstacle/staticObs/Barrier.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/FinalProject/src/chipchallenge/userInterface/World.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/GitHub/ChipChallenge/FinalProject/src/chipchallenge/engine/obstacle/Obstacle.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/GitHub/ChipChallenge/FinalProject/src/chipchallenge/userInterface/World.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/GitHub/ChipChallenge/FinalProject/src/chipchallenge/engine/obstacle/dynamicObs/Airplane.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/GitHub/ChipChallenge/FinalProject/src/chipchallenge/engine/obstacle/dynamicObs/DynamicObstacle.java</file>
-            <file>file:/C:/Users/Jonathan%20Surya%20Laksa/Desktop/GitHub/ChipChallenge/FinalProject/src/chipchallenge/userInterface/Board.java</file>
-        </group>
+        <group/>
+        <group/>
+        <group/>
         <group/>
         <group/>
     </open-files>
