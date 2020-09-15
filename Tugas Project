@@ -1,0 +1,32 @@
+Kelas yang dibutuhkan :
+  1.  Board
+  2.  Chip's
+  3.  Item  : a.  dapat masuk ke inventory :  i. kunci..
+                                              ii.sepatu..
+              b.  tidak dapat : IC..
+  4.  Floor : a.  dangerousFloor  :   i.  fireFloor..
+                                      ii. waterFloor..
+                                      
+              b.  fineFloor       :   1.  dapat di dorong : kotakCoklat..
+                                      2.  tidak dapat didorong  : i.    plainFloor..
+                                                                  ii.   turboFloor..
+                                                                  iii.  iceFloor..
+                                                                  iv.   shiftFloor  : 1.  teleportFloor..
+                                                                                      2.  finishFloor..
+                                                                                      
+                                                                  v.    triggerFloor :  1.  helpFloor..
+                                                                                        2.  removalFloor..
+                                                                                        3.  colouringWallFloor..
+                                      
+  5.  Obstacle :  a.  bergerak     :    i.  pesawat..
+                                        ii. marble..
+                                        iii.insect..
+                                        iv. fireBall..
+                                                    
+                  b.  tidak bergerak       :    1.  barrier..
+                                                2.  dinding : i.    normalWall..
+                                                              ii.   invisibleWall..
+                                                              iii.  randomWall..
+                                                              iv.   colouringWall..
+                                                               v.    dangerousWall..
+                                                                                      
